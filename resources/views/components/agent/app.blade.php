@@ -21,7 +21,7 @@
 
     <link id="pagestyle" href="{{ asset('agent-assets/css/style.css') }}" rel="stylesheet" />
 
-
+    @stack('css')
 
 
 </head>
