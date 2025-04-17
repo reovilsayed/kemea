@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Agent\PageController;
+use App\Http\Controllers\PropertieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[PageController::class,'dashbaord'] )->name('dashboard');
+
+Route::resource('properties', PropertieController::class);
 
 
