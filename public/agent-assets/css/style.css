@@ -24278,5 +24278,33 @@ pre[class*="language-"] {
     border-radius: 50%;
 }
 .padding-xxl{
+    padding: 30px 40px;
+}
+.greading{
+     font-size: 20px;
+     color: #0666EB;
+     font-weight: 700;
+}
+.greading-pera{
+    font-size: 16px;
+    color: #191C1F;
+
+}
+.widget{
+    padding: 16px;
+}
+.icon-section{
+    height: 56px;
+    width: 56px;
+    background-color: #dddddd54;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    /* opacity: .3; */
+}
+.icon-section i{
+    font-size: 32px;
+    color: #0666EB;
     
 }
