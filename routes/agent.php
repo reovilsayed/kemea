@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Agent\PageController;
-use App\Http\Controllers\PropertieController;
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PageController::class,'dashbaord'] )->name('dashboard');
 
 Route::get('create-page-two', [PageController::class, 'propertyCreatePageTwo'])->name('property_create_page_two');
-Route::resource('properties', PropertieController::class);
+Route::resource('properties', PropertyController::class);
 
 
 
