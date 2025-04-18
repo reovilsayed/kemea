@@ -20,6 +20,7 @@ Route::get('/',[PageController::class,'dashbaord'] )->name('dashboard');
 Route::get('create-page-two', [PageController::class, 'propertyCreatePageTwo'])->name('property_create_page_two');
 Route::resource('properties', PropertyController::class);
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
+Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
 
 
 
