@@ -11,7 +11,7 @@ class PropertieController extends Controller
      */
     public function index()
     {
-        //
+        return view('agent.pages.properties.index');
     }
 
     /**
