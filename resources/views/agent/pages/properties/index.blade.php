@@ -174,7 +174,7 @@
             <div class="d-flex justify-content-end">
                 <a href=""> <span class="btn btn-primary text-xs badge-primary btn-g-custom mb-0 me-3"
                         for="btncheck1">Drafts</span></a>
-                <a href=""> <span class="btn btn-primary text-xs  btn-g-custom mb-0"
+                <a href="{{ route('agent.dashboard.properties.create') }}"> <span class="btn btn-primary text-xs  btn-g-custom mb-0"
                         for="btncheck1">+Add New Property</span></a>
 
             </div>
