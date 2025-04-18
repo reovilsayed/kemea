@@ -42,7 +42,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware(['web', 'auth', 'role:agent'])
                 ->namespace($this->namespace)
                 ->prefix('agent/dashboard')
-                ->as('agent.')
+                ->as('agent.dashboard.')
                 ->group(base_path('routes/agent.php'));
 
             Route::middleware(['web', 'auth', 'role:user'])
