@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('property_metas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('property_id')->constrained()->cascadeOnDelete();
             $table->bigInteger('size_sqm');
             $table->bigInteger('surface_land_sqm');
             $table->boolean('is_flexible')->default(0)->nullable();
