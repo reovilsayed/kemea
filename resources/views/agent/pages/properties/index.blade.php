@@ -22,28 +22,6 @@
         .btn-group {
             display: inline;
         }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        .table {
-            width: 100%;
-            table-layout: fixed;
-            white-space: nowrap;
-        }
-
-        /* @media (max-width: 768px) {
-            .table-responsive {
-                overflow-x: auto;
-            }
-
-            .table {
-                width: 100%;
-                table-layout: fixed;
-                white-space: nowrap;
-            }
-        } */
     </style>
     <div class="container padding-xxl">
         <div class="d-flex justify-content-between">
@@ -190,14 +168,14 @@
 
                         </div>
                     </div>
-
+                   
                 </div>
             </div>
             <div class="d-flex justify-content-end">
                 <a href=""> <span class="btn btn-primary text-xs badge-primary btn-g-custom mb-0 me-3"
                         for="btncheck1">Drafts</span></a>
-                <a href=""> <span class="btn btn-primary text-xs  btn-g-custom mb-0" for="btncheck1">+Add New
-                        Property</span></a>
+                <a href=""> <span class="btn btn-primary text-xs  btn-g-custom mb-0"
+                        for="btncheck1">+Add New Property</span></a>
 
             </div>
         </div>
