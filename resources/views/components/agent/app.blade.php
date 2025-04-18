@@ -29,7 +29,7 @@
 <body class="g-sidenav-show  bg-gray-100">
 
 
-   <x-agent.sidebar/>
+    <x-agent.sidebar />
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
         <nav class="navbar bg-white navbar-main navbar-expand-lg p-0 pt-1  shadow-none " id="navbarBlur"
@@ -73,7 +73,12 @@
 
                         <li class="nav-item dropdown pe-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0 notification-icon"
-                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotification" aria-controls="offcanvasNotification">
+
+                                {{-- <button class="btn btn-primary" type="button">
+                                    Button with data-bs-target
+                                  </button> --}}
+
                                 <img src="{{ asset('agent-assets/img/notification-bell.png') }}" alt="">
                             </a>
                             <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
@@ -120,8 +125,8 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                                                <svg width="12px" height="12px" viewBox="0 0 43 36"
-                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" stroke-width="1" fill="none"
@@ -166,14 +171,40 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        {{$slot}}
+        {{ $slot }}
+
+      
     </main>
 
+    
+      
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNotification" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     <script src="{{ asset('agent-assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/chartjs.min.js') }}"></script>
+
 
 
     <script>

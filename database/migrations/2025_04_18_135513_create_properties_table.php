@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('slug');
-            $table->enum('property_type', ['Sell', 'Rent', 'Short-term'])->nullable();
+            $table->enum('property_type', ['Sell', 'Rent', 'Short-term','New Projects'])->nullable();
             $table->enum('home_type', ['Apartment', 'House', 'Villa','Cotage','Condominimum','Town house','Studio'])->nullable();
             $table->string('city')->nullable();
             $table->string('street')->nullable();
