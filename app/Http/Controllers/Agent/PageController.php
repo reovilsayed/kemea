@@ -10,4 +10,7 @@ class PageController extends Controller
     public function dashbaord()  {
         return view('agent.pages.dashboard');
     }
+    public function propertiYcreatePageTwo() {
+        return view('agent.pages.properties.createTwo');
+    }
 }
