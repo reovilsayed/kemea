@@ -310,7 +310,7 @@
             <div class="col-md-12 col-12">
                 <div class="d-flex justify-content-end align-items-center p-4">
                     <button type="submit" class="btn btn-outline-primary px-4 me-4" style="font-size: 14px;"><img src="{{ asset('agent-assets/img/save.svg') }}" alt=""> Save Draft</button>
-                    <a href="{{ route('property_create_page_two') }}" class="btn btn-primary px-4 py-2" style="font-size: 14px;">Next -></a>
+                    <a href="{{ route('agent.dashboard.property_create_page_two') }}" class="btn btn-primary px-4 py-2" style="font-size: 14px;">Next -></a>
                 </div>
             </div>
         </div>

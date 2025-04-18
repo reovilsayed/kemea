@@ -14,7 +14,7 @@
 
     <div class="d-md-flex justify-content-between align-items-center p-4">
         <h4 class="m-0" style="font-size: 20px; color: #0666EB;">
-            Add New Property - Step 1/3
+           <img src="{{ asset('agent-assets/img/Group 427321418.svg') }}" alt=""> Add New Property - Step 2/3
         </h4>
 
         <div class="d-none d-md-flex align-items-center gap-2">
@@ -31,286 +31,323 @@
     <form action="" method="">
         <div class="card m-4">
             <div class="card-body">
-                <h4 class="text-bold" style="font-size: 18px; color: #191C1F;">Basic Information:</h4>
+                <h4 class="text-bolder mt-3" style="font-size: 18px; color: #191C1F;">Basic Features</h4>
+
+                <div class="row mb-4 mt-3">
+                    <div class="col-md-6 col-12">
+                        <label for="city" class="form-label text-bold" style="color: #191C1F">Rooms</label>
+                        <div class="row row-cols-auto">
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Rooms1">
+                                <label for="Rooms1" class="form-label" style="color: #191C1F">1</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Rooms2">
+                                <label for="Rooms2" class="form-label" style="color: #191C1F">2</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Rooms3">
+                                <label for="Rooms3" class="form-label" style="color: #191C1F">3</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Rooms4">
+                                <label for="Rooms4" class="form-label" style="color: #191C1F">4</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Rooms5">
+                                <label for="Rooms5" class="form-label" style="color: #191C1F">5+</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="city" class="form-label text-bold" style="color: #191C1F">Bedrooms</label>
+                        <div class="row row-cols-auto">
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bedrooms1">
+                                <label for="Bedrooms1" class="form-label" style="color: #191C1F">1</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bedrooms2">
+                                <label for="Bedrooms2" class="form-label" style="color: #191C1F">2</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bedrooms3">
+                                <label for="Bedrooms3" class="form-label" style="color: #191C1F">3</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bedrooms4">
+                                <label for="Bedrooms4" class="form-label" style="color: #191C1F">4</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bedrooms5">
+                                <label for="Bedrooms5" class="form-label" style="color: #191C1F">5+</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row mb-4">
                     <div class="col-md-6 col-12">
-                        <label for="Property_for" class="form-label text-bold" style="color: #191C1F">Property
-                            for:</label>
-                        <select class="form-select custom-select" aria-label="Default select example" id="Property_for">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">Bathrooms</label>
+                        <div class="row row-cols-auto">
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bathrooms1">
+                                <label for="Bathrooms1" class="form-label" style="color: #191C1F">1</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bathrooms2">
+                                <label for="Bathrooms2" class="form-label" style="color: #191C1F">2</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bathrooms3">
+                                <label for="Bathrooms3" class="form-label" style="color: #191C1F">3</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bathrooms4">
+                                <label for="Bathrooms4" class="form-label" style="color: #191C1F">4</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Bathrooms5">
+                                <label for="Bathrooms5" class="form-label" style="color: #191C1F">5+</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">Toilets</label>
+                        <div class="row row-cols-auto">
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Toilets1">
+                                <label for="Toilets1" class="form-label" style="color: #191C1F">1</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Toilets2">
+                                <label for="Toilets2" class="form-label" style="color: #191C1F">2</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Toilets3">
+                                <label for="Toilets3" class="form-label" style="color: #191C1F">3</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Toilets4">
+                                <label for="Toilets4" class="form-label" style="color: #191C1F">4</label>
+                            </div>
+                            <div>
+                                <input class="form-check-input" type="checkbox" value="" id="Toilets5">
+                                <label for="Toilets5" class="form-label" style="color: #191C1F">5+</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
-                <h6 class="text-bold" style="font-size: 14px; color: #191C1F;">Property Address:</h6>
-
-                <div class="row mb-4">
-                    <div class="col-md-4">
-                        <label for="city" class="form-label text-bold" style="color: #191C1F">City :</label>
-                        <input type="text" class="form-control" id="city" placeholder="00">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="Street" class="form-label text-bold" style="color: #191C1F">Street:</label>
-                        <input type="text" class="form-control" id="Street" placeholder="00">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="Number" class="form-label text-bold" style="color: #191C1F">Number:</label>
-                        <input type="number" class="form-control" id="Number" placeholder="00">
-                    </div>
-                </div>
-
-
-                <h6 class="text-bold" style="font-size: 14px; color: #191C1F;">Show the address in the ad:</h6>
-
-                <div class="row mb-4">
-                    <div class="col-md-2 col-3">
-                        <input class="form-check-input" type="checkbox" value="" id="Yes">
-                        <label for="Yes" class="form-label" style="color: #191C1F">Yes</label>
-                    </div>
-                    <div class="col-md-2 col-3">
-                        <input class="form-check-input" type="checkbox" value="" id="no">
-                        <label for="no" class="form-label" style="color: #191C1F">No</label>
-                    </div>
-                    <div class="col-md-5 col-6">
-                        <input class="form-check-input" type="checkbox" value="" id="Without">
-                        <label for="Without" class="form-label" style="color: #191C1F">Without the street
-                            number</label>
-                    </div>
-                </div>
-
-
-                <div class="row row-cols-1 mb-4">
+                <h6 class="text-bolder" style="font-size: 14px; color: #191C1F;">Additional Features</h6>
+                <div class="row row-cols-auto mb-4">
                     <div class="">
-                        <label for="Property_for" class="form-label text-bold"
-                            style="color: #191C1F">Neighborhood/Quarter</label>
-                        <input type="text" class="form-control" id="city" placeholder="">
+                        <input class="form-check-input" type="checkbox" value="" id="Master">
+                        <label for="Master" class="form-label" style="color: #191C1F">Master Bedroom</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Conditioner">
+                        <label for="Conditioner" class="form-label" style="color: #191C1F">Air Conditioner</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Accessible">
+                        <label for="Accessible" class="form-label" style="color: #191C1F">Accessible</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Shelter">
+                        <label for="Shelter" class="form-label" style="color: #191C1F">Shelter</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Garbagechute">
+                        <label for="Garbagechute" class="form-label" style="color: #191C1F">Garbage chute</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Windowbars">
+                        <label for="Windowbars" class="form-label" style="color: #191C1F">Window bars</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Furnished">
+                        <label for="Furnished" class="form-label" style="color: #191C1F">Furnished</label>
                     </div>
                 </div>
 
+                <div class="row row-cols-auto mb-4">
+                    <div class="">
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">View:</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="None">
+                        <label for="None" class="form-label" style="color: #191C1F">None</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Overlooked">
+                        <label for="Overlooked" class="form-label" style="color: #191C1F">Overlooked</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Clear">
+                        <label for="Clear" class="form-label" style="color: #191C1F">Clear</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Exceptional">
+                        <label for="Exceptional" class="form-label" style="color: #191C1F">Exceptional</label>
+                    </div>
+                </div>
 
-                <h6 class="text-bold" style="font-size: 14px; color: #191C1F;">Area Selection:</h6>
-
-                <div class="row mb-4">
-                    <div class="col-md-3 col-6">
+                <div class="row row-cols-auto mb-4">
+                    <div class="">
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">Exposure:</label>
+                    </div>
+                    <div class="">
                         <input class="form-check-input" type="checkbox" value="" id="North">
                         <label for="North" class="form-label" style="color: #191C1F">North</label>
                     </div>
-                    <div class="col-md-3 col-6">
-                        <input class="form-check-input" type="checkbox" value="" id="Center">
-                        <label for="Center" class="form-label" style="color: #191C1F">Center</label>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <input class="form-check-input" type="checkbox" value="" id="Jerusalem">
-                        <label for="Jerusalem" class="form-label" style="color: #191C1F">Jerusalem</label>
-                    </div>
-                    <div class="col-md-3 col-6">
+                    <div class="">
                         <input class="form-check-input" type="checkbox" value="" id="South">
                         <label for="South" class="form-label" style="color: #191C1F">South</label>
                     </div>
-                </div>
-
-                <div class="row row-cols-1 mb-4">
                     <div class="">
-                        <input class="form-check-input" type="checkbox" value="" id="Exclusivity">
-                        <label for="Exclusivity" class="form-label text-bolder"
-                            style="color: #191C1F">Exclusivity</label>
-
-                        <p style="color: #191C1F; font-size: 14px;" class="">Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi
-                            ut
-                            aliquip ex ea commodo consequat.</p>
+                        <input class="form-check-input" type="checkbox" value="" id="East">
+                        <label for="East" class="form-label" style="color: #191C1F">East</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="West">
+                        <label for="West" class="form-label" style="color: #191C1F">West</label>
                     </div>
                 </div>
-
-                <div class="row row-cols-1 mb-4">
-                    <div class="">
-                        <input class="form-check-input" type="checkbox" value="" id="Exceptional_property">
-                        <label for="Exceptional_property" class="form-label text-bolder"
-                            style="color: #191C1F">Exceptional
-                            property</label>
-
-                        <p style="color: #191C1F; font-size: 14px;" class="">Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <div class="row row-cols-1 mb-4">
-                    <div class="">
-                        <input class="form-check-input" type="checkbox" value="" id="Off_Market">
-                        <label for="Off_Market" class="form-label text-bolder" style="color: #191C1F">Off
-                            Market</label>
-
-                        <p style="color: #191C1F; font-size: 14px;" class="">Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi
-                            ut
-                            aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-
 
                 <div class="row mb-4">
                     <div class="col-md-6 col-12">
-                        <label for="Home_Type" class="form-label text-bold" style="color: #191C1F">Home Type</label>
-                        <select class="form-select custom-select" aria-label="Default select example" id="Home_Type">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-4 col-12">
-                        <div class=" d-md-flex align-items-center">
-                            <label for="Size" class="form-label text-bolder w-md-25" style="color: #191C1F">Size
-                                sqm:</label>
-                            <input type="text" class="form-control w-md-60" id="Size" placeholder="">
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-12">
-                        <div class=" d-md-flex align-items-center">
-                            <label for="Surface" class="form-label text-bolder w-md-40"
-                                style="color: #191C1F">Surface
-                                of
-                                the
-                                Land sqm:</label>
-
-                            <input type="text" class="form-control w-md-35" id="Surface" placeholder="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-5 col-12">
-                        <div class="d-md-flex align-items-center">
-                            <label for="Asked" class="form-label text-bolder w-md-25" style="color: #191C1F">Asked
-                                Price:</label>
-                            <input type="text" class="form-control h-auto" id="Asked" placeholder="">
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-12 mt-3 mt-md-0">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <label for="Flexible" class="form-label text-bolder me-4"
-                                style="color: #191C1F; ">Flexible:</label>
-                            <div class="">
-                                <input class="form-check-input" type="checkbox" value="" id="Yes">
-                                <label for="Yes" class="form-label" style="color: #191C1F">Yes</label>
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">Balconies</label>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <input type="text" class="form-control" id="city" placeholder="Number">
+                            </div>
+                            <div class="col-md-6 col-12  mt-3 mt-md-0">
+                                <input type="text" class="form-control" id="Street" placeholder="Surface">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-12 mt-3 mt-md-0">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <label for="Price_Upon_Request" class="form-label text-bolder me-4"
-                                style="color: #191C1F">Price
-                                Upon Request:</label>
-                            <div class="">
-                                <input class="form-check-input" type="checkbox" value="" id="Yes1">
-                                <label for="Yes1" class="form-label" style="color: #191C1F">Yes</label>
+                    <div class="col-md-6 col-12 mt-3 mt-md-0">
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">Terraces</label>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <input type="text" class="form-control" id="city" placeholder="Number">
+                            </div>
+                            <div class="col-md-6 col-12 mt-3 mt-md-0">
+                                <input type="text" class="form-control" id="Street" placeholder="Surface">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-md-4 col-12">
-                        <div class=" d-md-flex align-items-center">
-                            <label for="Arnona" class="form-label text-bolder w-md-25"
-                                style="color: #191C1F">Arnona 2
-                                months:</label>
-                            <input type="text" class="form-control w-md-60" id="Arnona" placeholder="">
-                        </div>
+                <h6 class="text-bolder" style="font-size: 14px; color: #191C1F;">Extra Features</h6>
+                <div class="row row-cols-auto mb-4">
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Sukkah">
+                        <label for="Sukkah" class="form-label" style="color: #191C1F">Sukkah</label>
                     </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Pool">
+                        <label for="Pool" class="form-label" style="color: #191C1F">Pool</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Garden">
+                        <label for="Garden" class="form-label" style="color: #191C1F">Garden</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Elevator">
+                        <label for="Elevator" class="form-label" style="color: #191C1F">Elevator</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Parking">
+                        <label for="Parking" class="form-label" style="color: #191C1F">Parking</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Charging">
+                        <label for="Charging" class="form-label" style="color: #191C1F">Car Charging Station</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Gym">
+                        <label for="Gym" class="form-label" style="color: #191C1F">Gym</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="StrollerRoom">
+                        <label for="StrollerRoom" class="form-label" style="color: #191C1F">Stroller Room</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Warehouse">
+                        <label for="Warehouse" class="form-label" style="color: #191C1F">Warehouse</label>
+                    </div>
+                </div>
+
+                <h6 class="text-bolder" style="font-size: 14px; color: #191C1F;">Floor</h6>
+                <div class="row">
                     <div class="col-md-8 col-12">
-                        <div class=" d-md-flex align-items-center">
-                            <label for="Condominium" class="form-label text-bolder w-md-40"
-                                style="color: #191C1F">Condominium
-                                Fees:</label>
-
-                            <input type="text" class="form-control w-md-35" id="Condominium" placeholder="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="">
-                            <label for="Agent" class="form-label text-bold" style="color: #191C1F">Agent fees
-                                ch</label>
-                            <input type="text" class="form-control" id="Agent" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="agents" class="form-label text-bold" style="color: #191C1F">Share with
-                            other
-                            agents
-                            (% Shared)</label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input class="form-check-input me-4" type="checkbox" value="" id="North">
-                            <input type="text" class="form-control" id="agents" placeholder="">
+                            <input type="text" class="form-control" id="Street" placeholder="Number">
+                            <label for="Flexible" class="form-label text-bolder mx-3">On</label>
+                            <input type="text" class="form-control" id="Street" placeholder="Number">
+                            <div class="d-flex ms-3 w-70">
+                                <input class="form-check-input" type="checkbox" value="" id="LastFloor">
+                                <label for="LastFloor" class="form-label" style="color: #191C1F">Last Floor</label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
-                <h6 class="text-bold" style="font-size: 14px; color: #191C1F;">Add Visibility Options:</h6>
+                <div class="row row-cols-auto mb-4 mt-4">
+                    <div class="">
+                        <label for="city" class="form-label text-bolder" style="color: #191C1F">View:</label>
+                    </div>
+                    <div class="">
+                        <input type="date" class="form-control" id="Street" placeholder="Number">
+                    </div>
+                </div>
 
-                <div class="row mb-4">
-                    <div class="col-md-auto col-6">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                            <label class="btn btn-primary px-4 py-2" for="btncheck1">New Ad</label>
-                        </div>
+                <h6 class="text-bolder" style="font-size: 14px; color: #191C1F;">Property Condition:</h6>
+                <div class="row row-cols-auto mb-4">
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Renovated">
+                        <label for="Renovated" class="form-label" style="color: #191C1F">Renovated</label>
                     </div>
-                    <div class="col-md-auto col-6">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                            <label class="btn btn-primary px-4 py-2" for="btncheck2">Top Ad</label>
-                        </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Preserved">
+                        <label for="Preserved" class="form-label" style="color: #191C1F">Preserved</label>
                     </div>
-                    <div class="col-md-auto col-6">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                            <label class="btn btn-primary px-4 py-2" for="btncheck3">Preferred Ad</label>
-                        </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Worktobedone">
+                        <label for="Worktobedone" class="form-label" style="color: #191C1F">Work to be done</label>
                     </div>
-                    <div class="col-md-auto col-6">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                            <label class="btn btn-primary px-md-4 py-2" for="btncheck4">Large Visibility</label>
-                        </div>
+                </div>
+
+
+                <h6 class="text-bolder" style="font-size: 14px; color: #191C1F;">Entry Date:</h6>
+                <div class="row row-cols-auto mb-4">
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Immediate">
+                        <label for="Immediate" class="form-label" style="color: #191C1F">Immediate</label>
                     </div>
-                    <div class="col-md-auto col-6">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
-                            <label class="btn btn-primary px-4 py-2" for="btncheck5"> Video First Ad</label>
-                        </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="Flexible">
+                        <label for="Flexible" class="form-label" style="color: #191C1F">Flexible</label>
+                    </div>
+                    <div class="">
+                        <input class="form-check-input" type="checkbox" value="" id="WithaTenant">
+                        <label for="WithaTenant" class="form-label" style="color: #191C1F">With a Tenant</label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 col-12">
-                <div class="d-flex justify-content-end align-items-center p-4">
-                    <button type="submit" class="btn btn-outline-primary px-4 me-4" style="font-size: 14px;"><img src="{{ asset('agent-assets/img/save.svg') }}" alt=""> Save Draft</button>
-                    <a href="#" class="btn btn-primary px-4 py-2" style="font-size: 14px;">Next -></a>
+        <div class="row mx-3">
+            <div class="col-md-6 col-12 align-content-around">
+                <a href="{{ route('agent.dashboard.properties.create') }}" class="btn px-5 text-dark-light py-2" style="font-size: 14px; color: #0666EB; background-color: #0666eb47;"> <- Previous</a>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="d-flex justify-content-md-end align-items-center">
+                    <button type="submit" class="btn btn-outline-primary px-4 me-4" style="font-size: 14px;"><img
+                            src="{{ asset('agent-assets/img/save.svg') }}" alt=""> Save Draft</button>
+                    <a href="#" class="btn btn-primary px-5 py-2" style="font-size: 14px;">Next -></a>
                 </div>
             </div>
         </div>
