@@ -13,5 +13,10 @@ class PageController extends Controller
     public function propertyCreatePageTwo() {
         return view('agent.pages.properties.createTwo');
     }
-    
+    public function virtualService()  {
+        return view('agent.pages.virtual_services');
+    }
+    public function visibilities() {
+        return view('agent.pages.visibilities');
+    }
 }
