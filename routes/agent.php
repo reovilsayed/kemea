@@ -23,5 +23,7 @@ Route::resource('properties', PropertyController::class);
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
 Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
 
+Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
+
 
 

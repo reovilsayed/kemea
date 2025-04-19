@@ -46,13 +46,13 @@ id="sidenav-main">
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" href="virtual-reality.html">
+            <a class="nav-link text-dark" href="{{ route('agent.dashboard.virtual.service') }}">
                 <i class="material-symbols-rounded opacity-5">other_houses</i>
                 <span class="nav-link-text ms-1">Virtual Home Staging</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" href="rtl.html">
+            <a class="nav-link text-dark" href="{{ route('agent.dashboard.visibilities') }}">
                 <i class="material-symbols-rounded opacity-5">other_houses</i>
                 <span class="nav-link-text ms-1">Visibilities</span>
             </a>
@@ -62,6 +62,23 @@ id="sidenav-main">
                 <i class="material-symbols-rounded opacity-5">notifications</i>
                 <span class="nav-link-text ms-1">Notifications</span>
             </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="nav-link text-dark collapsed" data-bs-toggle="collapse"
+                data-bs-target="#home-collapse1" aria-expanded="false">
+                <i class="material-symbols-rounded opacity-5">apartment</i>
+
+                <span class="nav-link-text ms-1">Plan Management </span> <i
+                    class=" ms-2 fas fa-angle-down" style="font-size: 10px"></i>
+            </a>
+            <div class="collapse" id="home-collapse1" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="{{ route('agent.dashboard.plan.management') }}" class="nav-link ms-4  text-dark bg-white">Plan Management</a></li>
+                    <li><a href="" class="nav-link ms-4  text-dark bg-white">Invoices</a></li>
+
+                </ul>
+            </div>
         </li>
 
     </ul>

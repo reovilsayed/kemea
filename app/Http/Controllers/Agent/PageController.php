@@ -22,4 +22,8 @@ class PageController extends Controller
     public function visibilities() {
         return view('agent.pages.visibilities');
     }
+
+    public function planManagement() {
+        return view('agent.pages.plan_Management.planManagement');
+    }
 }
