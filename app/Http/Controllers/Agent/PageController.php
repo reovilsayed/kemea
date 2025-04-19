@@ -22,4 +22,10 @@ class PageController extends Controller
     public function visibilities() {
         return view('agent.pages.visibilities');
     }
+    public function sharedSearch(){
+        return view('agent.pages.shared_search');
+    }
+    public function sharedProperties()  {
+        return view('agent.pages.shared_properties');
+    }
 }
