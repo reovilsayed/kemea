@@ -28,4 +28,8 @@ class PageController extends Controller
     public function sharedProperties()  {
         return view('agent.pages.shared_properties');
     }
+
+    public function planManagement() {
+        return view('agent.pages.plan_Management.planManagement');
+    }
 }
