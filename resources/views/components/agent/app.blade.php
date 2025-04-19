@@ -10,7 +10,8 @@
         Kemea
     </title>
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -22,6 +23,36 @@
     <link id="pagestyle" href="{{ asset('agent-assets/css/style.css') }}" rel="stylesheet" />
 
     @stack('css')
+    <style>
+        .offcanvas-header {
+            justify-content: space-between;
+        }
+
+        .offcanvas-header-button {
+            display: flex;
+            width: 70px;
+            justify-content: space-between;
+        }
+
+        .offcanvas-header-button::after {
+            padding-top: 3px;
+
+        }
+
+        .user-notification-img {
+            width: 100%;
+            border-radius: 100%;
+        }
+        .offcanvas-notification p{
+            font-size: 14px;
+            line-height: 20px;
+        }
+         .offcanvas-img-active-dot{
+            font-size: 8px;
+            padding-left: 5px;
+        } 
+        
+    </style>
 
 
 </head>
@@ -36,8 +67,7 @@
             data-scroll="true">
             <div class="container-fluid py-1 px-3">
 
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4  justify-content-between"
-                    id="navbar">
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4  justify-content-between" id="navbar">
                     <div class=" pe-md-3 d-flex align-items-center">
                         <div class="input-group input-group-outline">
                             {{-- <label class="form-label">Type here...</label> --}}
@@ -73,11 +103,12 @@
 
                         <li class="nav-item dropdown pe-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0 notification-icon"
-                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotification" aria-controls="offcanvasNotification">
+                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotification"
+                                aria-controls="offcanvasNotification">
 
                                 {{-- <button class="btn btn-primary" type="button">
                                     Button with data-bs-target
-                                  </button> --}}
+                                </button> --}}
 
                                 <img src="{{ asset('agent-assets/img/notification-bell.png') }}" alt="">
                             </a>
@@ -129,8 +160,7 @@
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
-                                                    <g stroke="none" stroke-width="1" fill="none"
-                                                        fill-rule="evenodd">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <g transform="translate(-2169.000000, -745.000000)"
                                                             fill="#FFFFFF" fill-rule="nonzero">
                                                             <g transform="translate(1716.000000, 291.000000)">
@@ -173,32 +203,105 @@
         <!-- End Navbar -->
         {{ $slot }}
 
-      
+
     </main>
 
-    
-      
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNotification" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNotification"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notifications</h5>
+            <div class="dropdown mt-3 ">
+                <button
+                    class="offcanvas-header-button btn btn-secondary dropdown-toggle bg-transparent text-muted border border-2 "
+                    type="button" data-bs-toggle="dropdown">
+                    All
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="offcanvas-body">
-          <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-          </div>
-          <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
+
+        <div class="offcanvas-body p-0">
+            <div class="container-fluid">
+                <div class="row border-bottom mt-3">
+                    <div class="col-2">
+                        <div class="row">
+                        <spanm class=" col-2 offcanvas-img-active-dot">
+                        🟢
+                        </spanm>
+                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-10 offcanvas-notification">
+                        <p class="mb-2 "><strong class="text-dark"> Ray Arnold </strong> left 6 comments on <strong
+                                class="text-dark">Isla Nublar SOC2 compliance report</strong></p>
+                        <p>Last Wednesday at 9:42 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row border-bottom mt-3">
+                    <div class="col-2">
+                        <div class="row">
+                        <spanm class=" col-2 offcanvas-img-active-dot">
+                        🟢
+                        </spanm>
+                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-10 offcanvas-notification">
+                        <p class="mb-2 "><strong class="text-dark"> Ray Arnold </strong> left 6 comments on <strong
+                                class="text-dark">Isla Nublar SOC2 compliance report</strong></p>
+                        <p>Last Wednesday at 9:42 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row border-bottom mt-3">
+                    <div class="col-2">
+                        <div class="row">
+                        <spanm class=" col-2 offcanvas-img-active-dot">
+                        🟢
+                        </spanm>
+                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-10 offcanvas-notification">
+                        <p class="mb-2 "><strong class="text-dark"> Ray Arnold </strong> left 6 comments on <strong
+                                class="text-dark">Isla Nublar SOC2 compliance report</strong></p>
+                        <p>Last Wednesday at 9:42 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row border-bottom mt-3">
+                    <div class="col-2">
+                        <div class="row">
+                        <spanm class=" col-2 offcanvas-img-active-dot">
+                        🟢
+                        </spanm>
+                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-10 offcanvas-notification">
+                        <p class="mb-2 "><strong class="text-dark"> Ray Arnold </strong> left 6 comments on <strong
+                                class="text-dark">Isla Nublar SOC2 compliance report</strong></p>
+                        <p>Last Wednesday at 9:42 AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid my-5 ">
+                <a class="d-flex justify-content-center"href="">Clear All</a>
+            </div>
+            
         </div>
-      </div>
+
+    </div>
     <script src="{{ asset('agent-assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
