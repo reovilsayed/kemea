@@ -22,6 +22,8 @@ Route::get('create-page-third', [PageController::class, 'propertyCreatePageThird
 Route::resource('properties', PropertyController::class);
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
 Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
+Route::get('shared-search',[PageController::class,'sharedSearch'])->name('shared.search');
+Route::get('shared-properties',[PageController::class,'sharedProperties'])->name('shared.properties');
 
 Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
 
