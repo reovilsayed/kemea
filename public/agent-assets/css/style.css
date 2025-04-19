@@ -2589,15 +2589,15 @@ textarea.form-control-sm {
     background-color: transparent;
     border-color: transparent;
 }
-.form-check-input:checked[type=checkbox] {
+.form-check-input:checked[type="checkbox"] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-    background-color: #0666EB;
-      border-color: #0666EB;
+    background-color: #0666eb;
+    border-color: #0666eb;
 }
 .form-check-input[type="checkbox"]:indeterminate {
-    background-color: #0666EB;
-    border-color: #0666EB;
-    
+    background-color: #0666eb;
+    border-color: #0666eb;
+
     --bs-form-check-bg-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3E%3C/svg%3E");
 }
 .form-check-input:disabled {
@@ -3207,20 +3207,19 @@ fieldset:disabled .btn {
 }
 .btn-primary {
     --bs-btn-color: #0a0a0a;
-    --bs-btn-bg: #0666EB;
-    --bs-btn-border-color: #0666EB;
+    --bs-btn-bg: #0666eb;
+    --bs-btn-border-color: #0666eb;
     --bs-btn-hover-color: #0a0a0a;
-    --bs-btn-hover-bg: #0666EB;
-    --bs-btn-hover-border-color: #0666EB;
+    --bs-btn-hover-bg: #0666eb;
+    --bs-btn-hover-border-color: #0666eb;
     --bs-btn-focus-shadow-rgb: 200, 27, 86;
     --bs-btn-active-color: #0a0a0a;
-    --bs-btn-active-bg: #0666EB;
+    --bs-btn-active-bg: #0666eb;
     --bs-btn-active-border-color: 0666EB;
     --bs-btn-active-shadow: none;
     --bs-btn-disabled-color: #0a0a0a;
-    --bs-btn-disabled-bg: #0666EB;
-    --bs-btn-disabled-border-color: #0666EB;
-   
+    --bs-btn-disabled-bg: #0666eb;
+    --bs-btn-disabled-border-color: #0666eb;
 }
 .btn-secondary {
     --bs-btn-color: #fff;
@@ -3370,16 +3369,16 @@ fieldset:disabled .btn {
     --bs-btn-color: #000;
     --bs-btn-border-color: #000;
     --bs-btn-hover-color: #ffffff;
-    --bs-btn-hover-bg: #0666EB !important;
-    --bs-btn-hover-border-color: #0666EB;
+    --bs-btn-hover-bg: #0666eb !important;
+    --bs-btn-hover-border-color: #0666eb;
     --bs-btn-focus-shadow-rgb: 233, 30, 99;
     --bs-btn-active-color: #ffffff;
-    --bs-btn-active-bg: #0666EB;
-    --bs-btn-active-border-color: #0666EB;
+    --bs-btn-active-bg: #0666eb;
+    --bs-btn-active-border-color: #0666eb;
     --bs-btn-active-shadow: none;
-    --bs-btn-disabled-color: #0666EB;
+    --bs-btn-disabled-color: #0666eb;
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: #0666EB;
+    --bs-btn-disabled-border-color: #0666eb;
     --bs-gradient: none;
 }
 .btn-outline-secondary {
@@ -17608,9 +17607,8 @@ fieldset:disabled .btn {
 }
 .btn-primary:hover,
 .btn.bg-gradient-primary:hover {
-    background-color: #0666EB;
-    border-color: #0666EB;
-
+    background-color: #0666eb;
+    border-color: #0666eb;
 }
 .btn-primary .btn.bg-outline-primary,
 .btn.bg-gradient-primary .btn.bg-outline-primary {
@@ -17635,7 +17633,7 @@ fieldset:disabled .btn {
     box-shadow: none;
 }
 .btn-outline-primary:hover:not(.active) {
-    background-color: #0666EB;
+    background-color: #0666eb;
     /* opacity: 0.75; */
     box-shadow: none;
     color: #ffffff;
@@ -19229,7 +19227,7 @@ body.dark-version {
 .form-check:not(.form-switch) .form-check-input[type="radio"]:checked {
     border-color: #e91e63;
 }
-input[type="checkbox"]:checked{
+input[type="checkbox"]:checked {
     border-radius: 4px !important;
 }
 .form-check:not(.form-switch) .form-check-input[type="checkbox"] {
@@ -20260,7 +20258,6 @@ hr.horizontal.gray-light {
 }
 .navbar-vertical .navbar-nav .nav-link:hover {
     border-radius: 0 !important;
-
 }
 .navbar-vertical .navbar-nav .nav-link > i {
     min-width: 1rem;
@@ -24405,4 +24402,11 @@ pre[class*="language-"] {
 .show > .btn-primary.dropdown-toggle,
 .show > .btn.bg-gradient-primary.dropdown-toggle {
     background-color: #0666eb2e;
+}
+@media screen and (max-width: 480px) {
+    .dropdown-toggle:after {
+        position: absolute;
+        top: 13px;
+        right: 8px;
+    }
 }
