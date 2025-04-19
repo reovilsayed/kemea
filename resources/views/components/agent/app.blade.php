@@ -21,7 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <link id="pagestyle" href="{{ asset('agent-assets/css/style.css') }}" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.cssF">
     @stack('css')
     <style>
         .offcanvas-header {
@@ -43,15 +43,16 @@
             width: 100%;
             border-radius: 100%;
         }
-        .offcanvas-notification p{
+
+        .offcanvas-notification p {
             font-size: 14px;
             line-height: 20px;
         }
-         .offcanvas-img-active-dot{
+
+        .offcanvas-img-active-dot {
             font-size: 8px;
             padding-left: 5px;
-        } 
-        
+        }
     </style>
 
 
@@ -231,10 +232,11 @@
                 <div class="row border-bottom mt-3">
                     <div class="col-2">
                         <div class="row">
-                        <spanm class=" col-2 offcanvas-img-active-dot">
-                        🟢
-                        </spanm>
-                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                            <spanm class=" col-2 offcanvas-img-active-dot">
+                                🟢
+                            </spanm>
+                            <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-10 offcanvas-notification">
@@ -248,10 +250,11 @@
                 <div class="row border-bottom mt-3">
                     <div class="col-2">
                         <div class="row">
-                        <spanm class=" col-2 offcanvas-img-active-dot">
-                        🟢
-                        </spanm>
-                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                            <spanm class=" col-2 offcanvas-img-active-dot">
+                                🟢
+                            </spanm>
+                            <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-10 offcanvas-notification">
@@ -265,10 +268,11 @@
                 <div class="row border-bottom mt-3">
                     <div class="col-2">
                         <div class="row">
-                        <spanm class=" col-2 offcanvas-img-active-dot">
-                        🟢
-                        </spanm>
-                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                            <spanm class=" col-2 offcanvas-img-active-dot">
+                                🟢
+                            </spanm>
+                            <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-10 offcanvas-notification">
@@ -282,10 +286,11 @@
                 <div class="row border-bottom mt-3">
                     <div class="col-2">
                         <div class="row">
-                        <spanm class=" col-2 offcanvas-img-active-dot">
-                        🟢
-                        </spanm>
-                        <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}" alt="">
+                            <spanm class=" col-2 offcanvas-img-active-dot">
+                                🟢
+                            </spanm>
+                            <img class="col-10 user-notification-img" src="{{asset('agent-assets/img/team-1.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                     <div class="col-10 offcanvas-notification">
@@ -296,9 +301,9 @@
                 </div>
             </div>
             <div class="container-fluid my-5 ">
-                <a class="d-flex justify-content-center"href="">Clear All</a>
+                <a class="d-flex justify-content-center" href="">Clear All</a>
             </div>
-            
+
         </div>
 
     </div>
