@@ -32,4 +32,8 @@ class PageController extends Controller
     public function planManagement() {
         return view('agent.pages.plan_Management.planManagement');
     }
+    public function affiliate() {
+        return view('agent.pages.affiliate');
+    }
+ 
 }

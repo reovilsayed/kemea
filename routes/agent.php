@@ -26,6 +26,7 @@ Route::get('shared-search',[PageController::class,'sharedSearch'])->name('shared
 Route::get('shared-properties',[PageController::class,'sharedProperties'])->name('shared.properties');
 
 Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
+Route::get('affiliate',[PageController::class,'affiliate'])->name('affiliate');
 
 
 
