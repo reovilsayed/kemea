@@ -135,282 +135,282 @@
                                 </select>
                             </div>
                             <div class="table-responsive p-0 border border-radius-2xl">
-                                <table class="table align-items-center mb-0">
-                                    <thead class="t-head">
-                                        <tr>
-                                            <th class="text-dark custom-text padding-custom ps-3">
-                                                City</th>
-                                            <th class=" text-dark custom-text padding-custom">
-                                                Property Type</th>
-                                            <th class="text-dark custom-text padding-custom">
-                                                Search Type</th>
-                                            <th class="text-dark custom-text  padding-custom">
-                                                Budget</th>
-                                            <th class="text-center text-dark custom-text  padding-custom">
-                                                Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                    <table class="table align-items-center mb-0">
+                                        <thead class="t-head">
+                                            <tr>
+                                                <th class="text-dark custom-text padding-custom ps-4">
+                                                    City</th>
+                                                <th class=" text-dark custom-text padding-custom">
+                                                    Property Type</th>
+                                                <th class="text-dark custom-text padding-custom">
+                                                    Search Type</th>
+                                                <th class="text-dark custom-text  padding-custom">
+                                                    Budget</th>
+                                                <th class="text-center text-dark custom-text  padding-custom">
+                                                    Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <h4 class="text-bold py-4 " style="font-size: 18px; color: #191C1F;">My Searches</h4>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <h4 class="text-bold py-4 " style="font-size: 18px; color: #191C1F;">Other Searches</h4>
                             <div class="table-responsive p-0 border border-radius-2xl">
-                                <table class="table align-items-center mb-0">
-                                    <thead class="t-head">
-                                        <tr>
-                                            <th class="text-dark custom-text padding-custom ps-3">
-                                                City</th>
-                                            <th class=" text-dark custom-text padding-custom">
-                                                Property Type</th>
-                                            <th class="text-dark custom-text padding-custom">
-                                                Search Type</th>
-                                            <th class="text-dark custom-text  padding-custom">
-                                                Budget</th>
-                                            <th class="text-center text-dark custom-text  padding-custom">
-                                                Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                    <table class="table align-items-center mb-0">
+                                        <thead class="t-head">
+                                            <tr>
+                                                <th class="text-dark custom-text padding-custom ps-4">
+                                                    City</th>
+                                                <th class=" text-dark custom-text padding-custom">
+                                                    Property Type</th>
+                                                <th class="text-dark custom-text padding-custom">
+                                                    Search Type</th>
+                                                <th class="text-dark custom-text  padding-custom">
+                                                    Budget</th>
+                                                <th class="text-center text-dark custom-text  padding-custom">
+                                                    Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fs-6 text-xs fw-bold">
-                                                Miami
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Apartment
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                Buy
-                                            </td>
-                                            <td class="ps-0 text-xs fw-bold">
-                                                $9876
-                                            </td>
-                                            <td class="text-center">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="" class="btn btn-custom-info me-1"> <i
-                                                            class="material-symbols-rounded ">
-                                                            colorize</i></a>
-                                                    <a href="" class="btn btn-custom-danger me-1"> <i
-                                                            class="fa-solid fa-trash-can"></i></a>
-                                                    <a href="" class="btn btn-custom-primary"> <i
-                                                            class="material-symbols-rounded ">
-                                                            arrow_forward</i></a>
-                                                </div>
-                                            </td>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fs-6 text-xs fw-bold px-4">
+                                                    Miami
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Apartment
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    Buy
+                                                </td>
+                                                <td class="ps-0 text-xs fw-bold">
+                                                    $9876
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="" class="btn btn-custom-info me-1"> <i
+                                                                class="material-symbols-rounded ">
+                                                                colorize</i></a>
+                                                        <a href="" class="btn btn-custom-danger me-1"> <i
+                                                                class="fa-solid fa-trash-can"></i></a>
+                                                        <a href="" class="btn btn-custom-primary"> <i
+                                                                class="material-symbols-rounded ">
+                                                                arrow_forward</i></a>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </tbody>
+                                    </table>
+                                </div>
                         </div>
                     </div>
                 </form>
