@@ -244,7 +244,7 @@
                     </div>
                   </div>
                   <div class="p-2">
-                    <button class="btn btn-primary w-100">Upgrade Plan</button>
+                    <button class="btn btn-primary w-100">Upgrade Plan </button>
                   </div>
                 </div>
               </div>
