@@ -87,7 +87,7 @@ id="sidenav-main">
             <div class="collapse" id="home-collapse1" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li><a href="{{ route('agent.dashboard.plan.management') }}" class="nav-link ms-4  text-dark bg-white">Plan Management</a></li>
-                    <li><a href="" class="nav-link ms-4  text-dark bg-white">Invoices</a></li>
+                    <li><a href="{{ route('agent.dashboard.invoices') }}" class="nav-link ms-4  text-dark bg-white">Invoices</a></li>
 
                 </ul>
             </div>

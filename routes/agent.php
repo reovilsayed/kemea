@@ -28,5 +28,7 @@ Route::get('shared-properties',[PageController::class,'sharedProperties'])->name
 Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
 Route::get('affiliate',[PageController::class,'affiliate'])->name('affiliate');
 
+Route::get('/invoices',[PageController::class,'invoices'])->name('invoices');
+
 
 

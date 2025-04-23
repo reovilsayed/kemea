@@ -35,5 +35,9 @@ class PageController extends Controller
     public function affiliate() {
         return view('agent.pages.affiliate');
     }
+
+    public function invoices() {
+        return view('agent.pages.plan_Management.invoices');
+    }
  
 }
