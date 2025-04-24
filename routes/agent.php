@@ -29,6 +29,6 @@ Route::get('plan-management',[PageController::class,'planManagement'])->name('pl
 Route::get('affiliate',[PageController::class,'affiliate'])->name('affiliate');
 
 Route::get('/invoices',[PageController::class,'invoices'])->name('invoices');
-
+Route::get('office-profile',[PageController::class,'officeProfile'])->name('office.profile');
 
 
