@@ -28,7 +28,7 @@ return new class extends Migration
             $table->boolean('is_off_marcket')->default(0)->nullable();
             $table->double('asked_price',8,2)->nullable()->nullable();
             $table->boolean('is_price_request')->default(0)->nullable();
-            $table->text('visivility_options')->nullable();
+            $table->json('visivility_options')->nullable();
             $table->text('keywords')->nullable();
             $table->boolean('status')->default(0)->nullable();
             $table->boolean('is_tour_reservation')->default(0)->nullable();

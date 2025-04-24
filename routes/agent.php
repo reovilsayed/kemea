@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class,'dashbaord'] )->name('dashboard');
 
-Route::get('create-page-two', [PageController::class, 'propertyCreatePageTwo'])->name('property_create_page_two');
-Route::get('create-page-third', [PageController::class, 'propertyCreatePageThird'])->name('property_create_page_third');
+Route::get('create-page-two/{property}', [PageController::class, 'propertyCreatePageTwo'])->name('property_create_page_two');
+Route::get('create-page-third/{property}', [PageController::class, 'propertyCreatePageThird'])->name('property_create_page_third');
 Route::resource('properties', PropertyController::class);
+Route::post('createPage-two/{property}', [PropertyController::class, 'create_page_two'])->name('properties.createPage_two');
+Route::post('createPage-third/{property}', [PropertyController::class, 'createPage_third'])->name('properties.createPage_third');
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
 Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
 Route::get('shared-search',[PageController::class,'sharedSearch'])->name('shared.search');

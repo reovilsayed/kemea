@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Property extends Model
+class Property_meta extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
 
-    public function property_meta()
+    public function properties()
     {
-        return $this->hasOne(Property_meta::class);
+        return $this->hasMany(Property::class, 'property_id', 'id');
     }
-    
 
 }

@@ -100,7 +100,7 @@
                                         <th class="text-dark custom-text padding-custom ps-3">
                                             Properties</th>
                                         <th class=" text-dark custom-text padding-custom">
-                                            Listing Type</th>
+                                            Home Type</th>
                                         <th class="text-center text-dark custom-text padding-custom">
                                             Details</th>
                                         <th class="text-center text-dark custom-text  padding-custom">
@@ -115,67 +115,70 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1 align-items-center">
-                                                <div>
-                                                    <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                                                        class="avatar avatar-sm me-2 border-radius-circle"
-                                                        alt="user1">
+                                    @foreach ($properties as $property)
+                                    {{-- @dd($properties) --}}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1 align-items-center">
+                                                    <div>
+                                                        <img src="{{ Storage::url($property->property_meta->property_photo ?? '') }}"
+                                                            class="avatar avatar-sm me-2 border-radius-circle"
+                                                            alt="user1">
+                                                    </div>
+                                                    
+                                                    <div class="d-flex flex-column justify-content-center">
+
+                                                        <p class="text-xs font-weight-bold mb-0"><span class="badge-primary">{{ $property->property_type }}</span></p>
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex flex-column justify-content-center">
+                                            </td>
+                                            <td>
+                                                <p class="text-xs  mb-0 text-primary">{{ $property->home_type }}</p>
 
-                                                    <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs  mb-0 text-primary">Sell</p>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
 
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
+                                                <p class="text-xs  mb-0">City: {{ $property->city }}, Street: {{ $property->street}}</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span>
+                                                    Updated
+                                                </p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
+                                                        Staging Service</a> </p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <p class="text-xs  mb-0 ">
+                                                    <a href="" class="btn btn-custom-primary"> <i class="fa-solid fa-copy"></i></a>
+                                                    <a href="{{ route('agent.dashboard.properties.edit', $property) }}" class="btn btn-custom-info"> <i class="fa-solid fa-pen-nib"></i></a>
+                                                    <a href="" class="btn btn-custom-danger"> <i class="fas fa-trash-alt"></i></a>
 
-                                            <p class="text-xs  mb-0">City: New York, ID: 123</p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
-                                            </p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
-                                                    Staging Service</a> </p>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <p class="text-xs  mb-0 ">
-                                                <a href="" class="btn btn-custom-primary"> <i
-                                                        class="material-symbols-rounded "> arrow_forward</i></a>
-                                                <a href="" class="btn btn-custom-info"> <i
-                                                        class="material-symbols-rounded "> colorize</i></a>
-                                                <a href="" class="btn btn-custom-danger"> <i
-                                                        class="material-symbols-rounded "> colorize</i></a>
+                                                </p>
 
-                                            </p>
+                                            </td>
 
-                                        </td>
-
-                                    </tr>
+                                        </tr>
+                                    @endforeach
 
                                 </tbody>
                             </table>
 
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
             <div class="d-flex justify-content-end">
                 <a href=""> <span class="btn btn-primary text-xs badge-primary btn-g-custom mb-0 me-3"
                         for="btncheck1">Drafts</span></a>
-                <a href="{{ route('agent.dashboard.properties.create') }}"> <span class="btn btn-primary text-xs  btn-g-custom mb-0"
-                        for="btncheck1">+Add New Property</span></a>
+                <a href="{{ route('agent.dashboard.properties.create') }}"> <span
+                        class="btn btn-primary text-xs  btn-g-custom mb-0" for="btncheck1">+Add New
+                        Property</span></a>
 
             </div>
         </div>
