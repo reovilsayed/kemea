@@ -42,5 +42,11 @@ class PageController extends Controller
     public function invoices() {
         return view('agent.pages.plan_Management.invoices');
     }
+    public function officeProfile() {
+        return view('agent.pages.agent_Office_Management.office_profile');
+    }
+    public function teammanagement() {
+        return view('agent.pages.agent_Office_Management.team_management');
+    }
  
 }
