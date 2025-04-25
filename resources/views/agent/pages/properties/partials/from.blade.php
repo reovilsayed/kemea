@@ -124,11 +124,11 @@
         <div class="row mb-4">
             <div class="col-md-4 col-12">
                 <label for="Size" class="form-label text-bolder" style="color: #191C1F">Size sqm:</label>
-                <input type="number" class="form-control" name="size_sqm" id="Size" value="{{ $property->size_sqm }}">
+                <input type="number" class="form-control" name="size_sqm" id="Size" value="{{ $property->property_meta->size_sqm ?? '' }}">   
             </div>
             <div class="col-md-8 col-12">
                 <label for="Surface" class="form-label text-bolder" style="color: #191C1F">Surface of the Land sqm:</label>
-                <input type="number" class="form-control" name="surface_land_sqm" id="Surface" value="{{ $property->surface_land_sqm }}">
+                <input type="number" class="form-control" name="surface_land_sqm" id="Surface" value="{{ $property->property_meta->surface_land_sqm ?? '' }}">
             </div>
         </div>
 
@@ -150,25 +150,25 @@
         <div class="row mb-4">
             <div class="col-md-4 col-12">
                 <label for="Arnona" class="form-label text-bolder" style="color: #191C1F">Arnona 2 months:</label>
-                <input type="text" class="form-control" name="arnona_2_month" id="Arnona" value="{{ $property->arnona_2_month }}">
+                <input type="text" class="form-control" name="arnona_2_month" id="Arnona" value="{{ $property->property_meta->arnona_2_month ?? '' }}">
             </div>
             <div class="col-md-8 col-12">
                 <label for="Condominium" class="form-label text-bolder" style="color: #191C1F">Condominium Fees:</label>
-                <input type="number" class="form-control" name="condominimum_fees" id="Condominium" value="{{ $property->condominimum_fees }}">
+                <input type="number" class="form-control" name="condominimum_fees" id="Condominium" value="{{ $property->property_meta->condominimum_fees ?? '' }}">
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="Agent" class="form-label text-bold" style="color: #191C1F">Agent fees ch</label>
-                <input type="number" class="form-control" id="Agent" name="agent_fees" value="{{ $property->agent_fees }}">
+                <input type="number" class="form-control" id="Agent" name="agent_fees" value="{{ $property->property_meta->agent_fees ?? '' }}">
                 @error('agent_fees') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
             <div class="col-md-6">
                 <label for="agents" class="form-label text-bold" style="color: #191C1F">Share with other agents (% Shared)</label>
                 <div class="d-flex align-items-center justify-content-between">
-                    <input class="form-check-input me-4" type="checkbox" name="is_share_other_agent" value="1" id="is_share_other_agent" {{ $check('is_share_other_agent') }}>
-                    <input type="number" class="form-control" id="agents" name="share_other_agent_percentage" value="{{ $property->share_other_agent_percentage }}">
+                    <input class="form-check-input me-4" type="checkbox" name="is_share_other_agent" value="1" id="is_share_other_agent" {{ ($property->property_meta->is_share_other_agent ?? '') == '1' ? 'checked' : '' }}>
+                    <input type="number" class="form-control" id="agents" name="share_other_agent_percentage" value="{{ $property->property_meta->share_other_agent_percentage ?? '' }}">
                 </div>
                 @error('share_other_agent_percentage') <small class="text-danger d-block">{{ $message }}</small> @enderror
             </div>
@@ -177,37 +177,36 @@
 
         <h6 class="text-bold" style="font-size: 14px; color: #191C1F;">Add Visibility Options:</h6>
 
-        <div class="row mb-4">
+        @php
+        $selectedOptions = json_decode($property->visivility_options, true) ?? [];
+    @endphp
+    
+    <div class="row mb-4">
+        @php
+            $options = [
+                'New Ad',
+                'Top Ad',
+                'Preferred Ad',
+                'Large Visibility',
+                'Video First Ad'
+            ];
+        @endphp
+    
+        @foreach ($options as $index => $option)
             <div class="col-md-auto col-6">
                 <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck1" name="visivility_options[]" value="New Ad" autocomplete="off">
-                    <label class="btn btn-primary px-4 py-2" for="btncheck1">New Ad</label>
+                    <input type="checkbox"
+                           class="btn-check"
+                           id="btncheck{{ $index + 1 }}"
+                           name="visivility_options[]"
+                           value="{{ $option }}"
+                           autocomplete="off"
+                           {{ in_array($option, $selectedOptions) ? 'checked' : '' }}>
+                    <label class="btn btn-primary px-4 py-2" for="btncheck{{ $index + 1 }}">{{ $option }}</label>
                 </div>
             </div>
-            <div class="col-md-auto col-6">
-                <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck2" name="visivility_options[]" value="Top Ad" autocomplete="off">
-                    <label class="btn btn-primary px-4 py-2" for="btncheck2">Top Ad</label>
-                </div>
-            </div>
-            <div class="col-md-auto col-6">
-                <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck3" name="visivility_options[]" value="Preferred Ad" autocomplete="off">
-                    <label class="btn btn-primary px-4 py-2" for="btncheck3">Preferred Ad</label>
-                </div>
-            </div>
-            <div class="col-md-auto col-6">
-                <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck4" name="visivility_options[]" value="Large Visibility" autocomplete="off">
-                    <label class="btn btn-primary px-md-4 py-2" for="btncheck4">Large Visibility</label>
-                </div>
-            </div>
-            <div class="col-md-auto col-6">
-                <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck5" name="visivility_options[]" value="Video First Ad" autocomplete="off">
-                    <label class="btn btn-primary px-4 py-2" for="btncheck5"> Video First Ad</label>
-                </div>
-            </div>
-        </div>
+        @endforeach
+    </div>
+    
     </div>
 </div>

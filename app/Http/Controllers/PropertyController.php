@@ -11,9 +11,9 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $properties = Property::where('user_id', auth()->user()->id)->get();
+        $properties = Property::where('user_id', auth()->user()->id)->filter($request->only(['search', 'property_type']))->get();
         return view('agent.pages.properties.index', compact('properties'));
     }
 
@@ -149,8 +149,8 @@ class PropertyController extends Controller
             $data['video'] = $request->file('video')->store('property_videos', 'public');
         }
 
-        if ($request->hasFile('3d_tour_embed')) {
-            $data['3d_tour_embed'] = $request->file('3d_tour_embed')->store('3d_tour_embeds', 'public');
+        if ($request->hasFile('tour_embed')) {
+            $data['tour_embed'] = $request->file('tour_embed')->store('3d_tour_embeds', 'public');
         }
 
         if ($request->hasFile('home_staging_photo')) {
@@ -198,16 +198,168 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Property $property)
     {
-        //
+        $request->merge([
+            'visivility_options' => json_encode($request->input('visivility_options') ?? []),
+        ]);
+
+        $property->update($request->only([
+            'property_type',
+            'home_type',
+            'city',
+            'street',
+            'apt_number',
+            'is_show_address',
+            'quarter',
+            'area',
+            'is_exclusivity',
+            'is_exceptional_property',
+            'is_off_marcket',
+            'asked_price',
+            'is_price_request',
+            'visivility_options',
+        ]));
+        $property->property_meta()->update($request->only([
+            'size_sqm',
+            'surface_land_sqm',
+            'arnona_2_month',
+            'condominimum_fees',
+            'agent_fees',
+            'is_share_other_agent',
+            'share_other_agent_percentage',
+        ]));
+        if ($request->input('action') === 'next') {
+            return redirect()->route('agent.dashboard.property_edit_page_two', ['property' => $property->id]);
+        }
+        return back()->with('success', 'Property saved as draft.');
+    }
+
+    public function update_page_two(Request $request, Property $property)
+    {
+        $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
+
+        $request->merge([
+            'additional_feature' => json_encode($request['additional_feature'] ?? []),
+            'view' => json_encode($request['view'] ?? []),
+            'extra_features' => json_encode($request['extra_features'] ?? []),
+        ]);
+
+        $property_meta->update($request->only([
+            'rooms',
+            'bed_rooms',
+            'bath_rooms',
+            'toilet',
+            'additional_feature',
+            'view',
+            'exposer',
+            'belconi_amount',
+            'belconi_surface',
+            'terraces_amount',
+            'terraces_surface',
+            'extra_features',
+            'floor',
+            'to_floor',
+            'is_last_floor',
+            'consturection_date',
+            'property_condition',
+            'entry_date',
+        ]));
+
+        if ($request->input('action') === 'next') {
+            return redirect()->route('agent.dashboard.property_edit_page_third', ['property' => $property->id]);
+        }
+        return back()->with('success', 'Property saved as draft.');
+    }
+
+    public function update_page_third(Request $request, Property $property)
+    {
+        $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
+
+        $data = [];
+        if ($request->hasFile('property_photo')) {
+            $image = $property->property_meta->property_photo;
+
+            if ($image) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($image);
+            }
+
+            $data['property_photo'] = $request->file('property_photo')->store('property_photos', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $video = $property->property_meta->video;
+
+            if ($video) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($video);
+            }
+            $data['video'] = $request->file('video')->store('property_videos', 'public');
+        }
+
+        if ($request->hasFile('tour_embed')) {
+            $tour_embed = $property->property_meta->tour_embed;
+            if ($tour_embed) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($tour_embed);
+            }
+            $data['3d_tour_embed'] = $request->file('3d_tour_embed')->store('3d_tour_embeds', 'public');
+        }
+
+        if ($request->hasFile('home_staging_photo')) {
+            $home_staging_photo = $property->property_meta->home_staging_photo;
+            if ($home_staging_photo) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($home_staging_photo);
+            }
+            $data['home_staging_photo'] = $request->file('home_staging_photo')->store('home_staging_photos', 'public');
+        }
+
+        if ($request->filled('virtual_home_staging')) {
+            $virtual_home_staging = $property->property_meta->virtual_home_staging;
+            if ($virtual_home_staging) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($virtual_home_staging);
+            }
+            $data['virtual_home_staging'] = $request->input('virtual_home_staging');
+        }
+        if ($request->filled('description')) {
+            $data['description'] = $request->input('description');
+        }
+
+        $property_meta->update($data);
+
+        $property->update([
+            'keywords' => $request->input('keywords'),
+        ]);
+
+        if ($request->input('action') === 'publish') {
+            $property->update(['status' => 1]);
+            return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property published successfully.');
+        }
+
+        return back()->with('success', 'Property saved as draft.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Property $property)
     {
-        //
+        $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
+        if ($property_meta->property_photo) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->property_photo);
+        }
+        if ($property_meta->video) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->video);
+        }
+        if ($property_meta->tour_embed) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->tour_embed);
+        }
+        if ($property_meta->home_staging_photo) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->home_staging_photo);
+        }
+        if ($property_meta->virtual_home_staging) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->virtual_home_staging);
+        }
+        $property_meta->delete();
+        $property->delete();
+        return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property deleted successfully.');
     }
 }

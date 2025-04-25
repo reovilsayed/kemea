@@ -29,8 +29,9 @@
     </div>
 
 
-    <form action="{{ route('agent.dashboard.properties.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('agent.dashboard.properties.update', $property) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         @include('agent.pages.properties.partials.from', ['property' => $property])
 

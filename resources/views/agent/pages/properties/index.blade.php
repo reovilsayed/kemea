@@ -34,59 +34,56 @@
                 </ol>
             </nav>
         </div>
-        <div class="row align-items-center">
-            <div class="col-md-6 mt-3">
-
-                <div class="input-group input-group-outline">
-
-                    <div class="input-group mb-3 " style="flex-direction: column">
-                        <form action="" method="get" class="">
+        <form action="{{ route('agent.dashboard.properties.index') }}" method="GET" class="w-100">
+            <div class="row align-items-center">
+                <div class="col-md-6 mt-3">
+                    <div class="input-group input-group-outline">
+                        <div class="input-group mb-3" style="flex-direction: column">
                             <div class="input-group-prepend">
                                 <button type="submit" class="input-group-text" id="basic-addon1">
                                     <i class="material-symbols-rounded opacity-5">search</i>
-
                                 </button>
                             </div>
-                            <input type="text" class="form-control p-3 w-100" placeholder="Search.."
-                                style="padding-left: 35px !important" onfocus="focused(this)"
-                                onfocusout="defocused(this)">
-                        </form>
+                            <input
+                                type="text"
+                                name="search"
+                                class="form-control p-3 w-100"
+                                placeholder="Search ...."
+                                style="padding-left: 35px !important"
+                                value="{{ request('search') }}"
+                            >
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-md-between flex-wrap">
+        
+                        @foreach (['Sell', 'Rent', 'Short-term', 'New Projects'] as $type)
+                            <div class="btn-group is-filled mt-3" role="group">
+                                <input
+                                    type="checkbox"
+                                    class="btn-check"
+                                    id="btncheck_{{ $type }}"
+                                    name="property_type[]"
+                                    value="{{ $type }}"
+                                    {{ in_array($type, (array) request('property_type')) ? 'checked' : '' }}
+                                >
+                                <label class="btn btn-primary text-xs badge-light mb-0" for="btncheck_{{ $type }}">
+                                    {{ $type }}
+                                </label>
+                            </div>
+                        @endforeach
+        
+                        <div class="btn-group is-filled mt-3 ms-2 ms-md-0">
+                            <button type="submit" class="btn btn-main btn-primary">Search</button>
+                        </div>
+        
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 ">
-
-                <div class="d-flex justify-content-md-between flex-wrap">
-                    <div class="btn-group is-filled mt-3" role="group"
-                        aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                        <label class="btn btn-primary text-xs badge-primary btn-g-custom mb-0"
-                            for="btncheck1">Sell</label>
-                    </div>
-                    <div class="btn-group is-filled mt-3" role="group"
-                        aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                        <label class="btn btn-primary text-xs badge-light mb-0" for="btncheck2">Rent</label>
-                    </div>
-                    <div class="btn-group is-filled mt-3" role="group"
-                        aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                        <label class="btn btn-primary text-xs badge-light mb-0" for="btncheck3">Short term</label>
-                    </div>
-                    <div class="btn-group is-filled mt-3" role="group"
-                        aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
-                        <label class="btn btn-primary text-xs badge-light mb-0" for="btncheck4">New project</label>
-                    </div>
-                    <div class="btn-group is-filled mt-3 ms-2 ms-md-0">
-                        <button type="submit" class="btn btn-main btn-primary">Search</button>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
+        </form>
+        
 
         <div class="row">
             <div class="col-12">
@@ -152,11 +149,19 @@
                                                 <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
                                                         Staging Service</a> </p>
                                             </td>
-                                            <td class="align-middle text-center">
+                                            <td class="align-middle text-center d-flex justify-content-around">
                                                 <p class="text-xs  mb-0 ">
                                                     <a href="" class="btn btn-custom-primary"> <i class="fa-solid fa-copy"></i></a>
                                                     <a href="{{ route('agent.dashboard.properties.edit', $property) }}" class="btn btn-custom-info"> <i class="fa-solid fa-pen-nib"></i></a>
-                                                    <a href="" class="btn btn-custom-danger"> <i class="fas fa-trash-alt"></i></a>
+                                                    <div class="">
+                                                        <form action="{{ route('agent.dashboard.properties.destroy', $property) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this property?');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-custom-danger" title="Delete Property">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
 
                                                 </p>
 
@@ -183,5 +188,6 @@
             </div>
         </div>
     </div>
+    
 
 </x-agent.app>

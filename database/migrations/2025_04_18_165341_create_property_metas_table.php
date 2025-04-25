@@ -45,7 +45,7 @@ return new class extends Migration
             $table->string('property_photo')->nullable();
             $table->string('home_staging_photo')->nullable();
             $table->string('video')->nullable();
-            $table->string('3d_tour_embed')->nullable();
+            $table->string('tour_embed')->nullable();
             $table->boolean('virtual_home_staging')->default(0)->nullable();
             $table->timestamps();
         });

@@ -19,6 +19,12 @@ class PageController extends Controller
         
         return view('agent.pages.properties.createThird', compact('property'));
     }
+    public function propertyEditPageTwo(Property $property) {
+        return view('agent.pages.properties.edit_two', compact('property'));
+    }
+    public function propertyEditPageThird(Property $property) {
+        return view('agent.pages.properties.edit_third', compact('property'));
+    }
     public function virtualService()  {
         return view('agent.pages.virtual_services');
     }
