@@ -13,7 +13,8 @@ class PropertyController extends Controller
      */
     public function index(Request $request)
     {
-        $properties = Property::where('user_id', auth()->user()->id)->filter($request->only(['search', 'property_type']))->get();
+        $properties = Property::where('user_id', auth()->user()->id)->latest()->filter($request->only(['search', 'property_type']))
+        ->get();
         return view('agent.pages.properties.index', compact('properties'));
     }
 

@@ -172,6 +172,9 @@
 
                                 </tbody>
                             </table>
+                            {{-- < <div class="d-flex justify-content- mt-3">
+                                {{ $properties->links('pagination::bootstrap-5') }}
+                            </div> --}}
 
                         </div>
                     </div>
