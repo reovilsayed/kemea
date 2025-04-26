@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('message/store/{id}', [MessageController::class, 'store'])->middleware('auth')->name('message.store');
+
+Route::post('/paypal/order', [SubscriptionController::class, 'createOrder'])->name('paypal.order');
+Route::post('/paypal/order/{order}/capture', [SubscriptionController::class, 'captureOrder'])->name('paypal.capture');

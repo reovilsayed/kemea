@@ -123,10 +123,14 @@
                                             @endforeach
                                             <div class="p-2">
 
-                                                <div id="paypal-button-container"></div>
 
 
-                                                <button class="btn btn-primary w-100">Renew Plan</button>
+
+                                                <button type="button" class="btn btn-primary w-100"
+                                                    data-bs-toggle="modal" data-bs-target="#paypalModal"
+                                                    data-plan-id="{{ $plan->id }}">
+                                                    Renew
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -145,61 +149,47 @@
         </div>
     </div>
 
-    <form id="payment-form">
-        {{-- Payment Method Toggle --}}
-        <div class="mb-3">
-            <label>
-                <input type="radio" name="method" value="card" checked>
-                Credit card
-            </label>
-            <span class="ml-2">
-                <img src="https://img.icons8.com/color/24/visa.png" />
-                <img src="https://img.icons8.com/color/24/mastercard.png" />
-                <img src="https://img.icons8.com/color/24/amex.png" />
-                <img src="https://img.icons8.com/color/24/discover.png" />
-            </span>
-
-            <label class="ml-4">
-                <input type="radio" name="method" value="paypal">
-                PayPal
-            </label>
-        </div>
-
-        {{-- Credit Card Fields (hosted) --}}
-        <div id="card-container" class="mb-3">
-            <div class="form-group">
-                <label>Card number</label>
-                <div id="card-number" class="form-control"></div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col">
-                    <label>Expiration date (MM/YY)</label>
-                    <div id="card-expiry" class="form-control"></div>
+    <div class="modal fade" id="paypalModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Renew <span id="modal-plan-name"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="form-group col">
-                    <label>CVC</label>
-                    <div id="card-cvv" class="form-control"></div>
+
+                <div class="modal-body">
+                   
+                    <div id="paypal-button-container" style="display:none;"></div>
                 </div>
             </div>
-            <div class="form-group">
-                <label>Name on card</label>
-                <input type="text" id="card-holder-name" class="form-control" placeholder="Full name">
-            </div>
-            <div class="form-check mb-3">
-                <input type="checkbox" id="use-shipping" class="form-check-input">
-                <label for="use-shipping" class="form-check-label">
-                    Use shipping address as billing address
-                </label>
-            </div>
-            <button id="card-submit" type="button" class="btn btn-primary">Pay</button>
         </div>
+    </div>
 
-        {{-- PayPal Button --}}
-        <div id="paypal-button-container" style="display:none;"></div>
-    </form>
-
-    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&vault=true&intent=subscription">
-       
+    @push('scripts')
+        <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons">
+        </script>
+     
+        <script>
+            paypal.Buttons({
+              createOrder: function(data, actions) {
+                return actions.order.create({
+                  purchase_units: [{
+                    amount: {
+                      value: '10.00'
+                    }
+                  }]
+                });
+              },
+              onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                  // 👉 Here you can call your server to save the payment info
+                });
+              }
+            }).render('#paypal-button-container');
+          </script>
+      
+    @endpush
 
 
 

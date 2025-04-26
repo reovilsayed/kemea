@@ -47,6 +47,6 @@ Route::get('tour-reservation',[PageController::class,'tourReservation'])->name('
 Route::post('schedule-store',[ScheduleController::class,'store'])->name('schedule.store');
 Route::post('boost-store',[BoostController::class,'store'])->name('boost.store');
 Route::get('messages/{id?}',[MessageController::class,'messages'])->name('messages');
-Route::post('subscribe/{plan}',[SubscriptionController::class,'subscription'])->name('subscribe');
+Route::post('subscription/store',[SubscriptionController::class,'subscription'])->name('subscribe');
 
 
