@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
 use App\Models\Boost;
+use App\Models\Plan;
 use App\Models\Property;
 use App\Models\Property_meta;
 use Illuminate\Http\Request;
@@ -41,7 +42,8 @@ class PageController extends Controller
     }
 
     public function planManagement() {
-        return view('agent.pages.plan_Management.planManagement');
+        $plans=Plan::all();
+        return view('agent.pages.plan_Management.planManagement',compact('plans'));
     }
     public function affiliate() {
         return view('agent.pages.affiliate');
