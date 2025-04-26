@@ -8,7 +8,7 @@
             <p class="text-center text-dark mb-3">Create your office profile, upload details, and manage your team efficiently. A complete
               profile helps in better visibility and collaboration.</p>
             <div class="button d-flex justify-content-center mb-5">
-              <a href="" class="text-white btn btn-primary " style="padding-top: 12px;width: 235px;height: 48px;">Set Up Office Profile</a>
+              <a href="{{ route('agent.dashboard.officeProfile') }}" class="text-white btn btn-primary " style="padding-top: 12px;width: 235px;height: 48px;">Set Up Office Profile</a>
             
             </div>
           </div>
