@@ -96,6 +96,8 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($boosts as $boost)
+                      
                   <tr>
                     <td>
                       <div class="d-flex px-2 py-1 align-items-center">
@@ -105,24 +107,24 @@
                         </div>
                         <div class="d-flex flex-column justify-content-center">
 
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
+                          <p class="text-xs font-weight-bold mb-0">{{$boost->property->home_type}}</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <p class="text-xs  mb-0 text-primary">Sell</p>
+                      <p class="text-xs  mb-0 text-primary">{{$boost->property->property_type}}</p>
 
                     </td>
                     <td class="align-middle text-center text-sm">
 
-                      <p class="text-xs  mb-0">City: New York, ID: 123</p>
+                      <p class="text-xs  mb-0">City: {{$boost->property->city}}, ID: {{$boost->id}}</p>
                     </td>
                     <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
+                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> {{$boost->property->status ? 'Active' : 'Deactive'}}
                       </p>
                     </td>
                     <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
+                      <p class="text-xs  mb-0 "><span class="badge-primary">{{$boost->boostPrice->name}}</span> </p>
                     </td>
                     <td class="align-middle text-center">
                       <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
@@ -137,174 +139,8 @@
                     
 
                   </tr>
+                  @endforeach
 
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 text-primary">Sell</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">City: New York, ID: 123</p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
-                      </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
-                          Staging Service</a> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">
-                      <button href="" class="btn btn-custom-primary"> <i
-                      class="material-symbols-rounded "> arrow_forward</i></button>
-                      </p>
-                    </td>
-                    
-
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 text-primary">Sell</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">City: New York, ID: 123</p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
-                      </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
-                          Staging Service</a> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">
-                      <button href="" class="btn btn-custom-primary"> <i
-                      class="material-symbols-rounded "> arrow_forward</i></button>
-                      </p>
-                    </td>
-                    
-
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 text-primary">Sell</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">City: New York, ID: 123</p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
-                      </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
-                          Staging Service</a> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">
-                      <button disabled href="" class="btn btn-custom-primary"> <i
-                      class="material-symbols-rounded "> arrow_forward</i></button>
-                      </p>
-                    </td>
-                    
-
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 text-primary">Sell</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">City: New York, ID: 123</p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "> <span style="font-size: 8px">🟢</span> Updated
-                      </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><span class="badge-primary">New</span> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 "><a href="" class="text-primary">+Add
-                          Staging Service</a> </p>
-                    </td>
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">
-                      <button href="" class="btn btn-custom-primary"> <i
-                      class="material-symbols-rounded "> arrow_forward</i></button>
-                      </p>
-                    </td>
-                    
-
-                  </tr>
 
                 </tbody>
               </table>

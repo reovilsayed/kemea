@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\Boost;
 use App\Models\Property;
 use App\Models\Property_meta;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class PageController extends Controller
         return view('agent.pages.virtual_services');
     }
     public function visibilities() {
-        return view('agent.pages.visibilities');
+        $boosts=Boost::where('user_id',auth()->id())->latest()->get();
+        return view('agent.pages.visibilities',compact('boosts'));
     }
     public function sharedSearch(){
         return view('agent.pages.shared_search');
@@ -53,6 +55,12 @@ class PageController extends Controller
     }
     public function teammanagement() {
         return view('agent.pages.agent_Office_Management.team_management');
+    }
+    public function tourReservation()  {
+        return view('agent.pages.tour_reservation');
+    }
+    public function messages() {
+        return view('agent.pages.messages');
     }
  
 }

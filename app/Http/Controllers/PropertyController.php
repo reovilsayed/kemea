@@ -32,26 +32,26 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'property_type' => 'required|string',
-            'home_type' => 'nullable|string',
-            'city' => 'required|string',
-            'street' => 'required|string',
-            'apt_number' => 'nullable|string',
-            'quarter' => 'nullable|string',
-            'is_exclusivity' => 'required|boolean',
-            'is_exceptional_property' => 'required|boolean',
-            'is_off_marcket' => 'required|boolean',
-            'size_sqm' => 'nullable|numeric',
-            'surface_land_sqm' => 'nullable|numeric',
-            'asked_price' => 'nullable|numeric',
-            'is_price_request' => 'required|boolean',
-            'arnona_2_month' => 'nullable|numeric',
-            'condominimum_fees' => 'nullable|numeric',
-            'agent_fees' => 'nullable|numeric',
-            'is_share_other_agent' => 'required|boolean',
-            'share_other_agent_percentage' => 'nullable|numeric|min:0|max:100',
-        ]);
+        // $request->validate([
+        //     'property_type' => 'required|string',
+        //     'home_type' => 'nullable|string',
+        //     'city' => 'required|string',
+        //     'street' => 'required|string',
+        //     'apt_number' => 'nullable|string',
+        //     'quarter' => 'nullable|string',
+        //     'is_exclusivity' => 'required|boolean',
+        //     'is_exceptional_property' => 'required|boolean',
+        //     'is_off_marcket' => 'required|boolean',
+        //     'size_sqm' => 'nullable|numeric',
+        //     'surface_land_sqm' => 'nullable|numeric',
+        //     'asked_price' => 'nullable|numeric',
+        //     'is_price_request' => 'required|boolean',
+        //     'arnona_2_month' => 'nullable|numeric',
+        //     'condominimum_fees' => 'nullable|numeric',
+        //     'agent_fees' => 'nullable|numeric',
+        //     'is_share_other_agent' => 'required|boolean',
+        //     'share_other_agent_percentage' => 'nullable|numeric|min:0|max:100',
+        // ]);
         $request->merge([
             'user_id' => auth()->user()->id,
             'slug' => str()->slug($request->input('property_type') . '-' . uniqid()),

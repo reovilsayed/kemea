@@ -15,6 +15,11 @@ class Property extends Model
     {
         return $this->hasOne(Property_meta::class);
     }
+    public function boost()
+    {
+
+        return $this->hasOne(Boost::class,'property_id');
+    }
 
     // app/Models/Property.php
 

@@ -40,7 +40,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="billing.html">
+                <a class="nav-link text-dark" href="{{route('agent.dashboard.tour.reservation')}}">
                     {{-- <i class="material-symbols-rounded opacity-5">receipt_long</i> --}}
                     <i class="material-symbols-rounded opacity-5">calendar_month</i>
                     <span class="nav-link-text ms-1">Tour Reservation</span>
@@ -91,9 +91,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="notifications.html">
-                    <i class="material-symbols-rounded opacity-5">notifications</i>
-                    <span class="nav-link-text ms-1">Notifications</span>
+                <a class="nav-link text-dark" href="{{route('agent.dashboard.messages')}}">
+                    <i class="material-symbols-rounded opacity-5">forum</i>
+                    <span class="nav-link-text ms-1">Messages</span>
                 </a>
             </li>
 
