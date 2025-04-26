@@ -42,8 +42,8 @@ class OfficeProfileController extends Controller
             'image' => $image,
         ]);
 
-
-        return redirect()->route('officeProfile')->with('success', 'Office Profile saved successfully!');
+      
+        return redirect()->route('agent.dashboard.officeProfile')->with('success', 'Office Profile saved successfully!');
     }
 
 }
