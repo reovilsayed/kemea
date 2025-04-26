@@ -5,6 +5,7 @@ use App\Http\Controllers\Agent\PageController;
 use App\Http\Controllers\Agent\ScheduleController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +47,6 @@ Route::get('tour-reservation',[PageController::class,'tourReservation'])->name('
 Route::post('schedule-store',[ScheduleController::class,'store'])->name('schedule.store');
 Route::post('boost-store',[BoostController::class,'store'])->name('boost.store');
 Route::get('messages/{id?}',[MessageController::class,'messages'])->name('messages');
+Route::post('subscribe/{plan}',[SubscriptionController::class,'subscription'])->name('subscribe');
 
 
