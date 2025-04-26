@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('office_profiles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('details');
-            $table->string('logo');
-            $table->string('image');
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('details')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
