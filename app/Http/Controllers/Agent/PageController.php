@@ -59,8 +59,6 @@ class PageController extends Controller
     public function tourReservation()  {
         return view('agent.pages.tour_reservation');
     }
-    public function messages() {
-        return view('agent.pages.messages');
-    }
+  
  
 }
