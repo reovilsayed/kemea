@@ -42,7 +42,7 @@
     @endpush
     <div class="d-md-flex justify-content-between align-items-center p-4">
         <h4 class="m-0" style="font-size: 20px; color: #0666EB;">
-            <img src="{{ asset('agent-assets/img/Group 427321418.svg') }}" alt=""> Add New Property - Step 3/3
+            <img src="{{ asset('agent-assets/img/Group 427321418.svg') }}" alt=""> Edit Property - Step 3/3
         </h4>
 
         <div class="d-none d-md-flex align-items-center gap-2">
@@ -51,11 +51,11 @@
                 Dashboard
             </a>
             <img src="{{ asset('agent-assets/img/Icon.svg') }}" alt="Icon" class="mx-2">
-            <span style="font-size: 14px;">Add New Property</span>
+            <span style="font-size: 14px;">Edit Property</span>
         </div>
     </div>
 
-    <form action="{{ route('agent.dashboard.properties.createPage_third', $property) }}" method="POST"
+    <form action="{{ route('agent.dashboard.propertie_update_page_third', $property) }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         
@@ -65,7 +65,7 @@
 
         <div class="row mx-3 my-4">
             <div class="col-md-6 col-12 align-content-around">
-                <a href="{{ route('agent.dashboard.property_create_page_two', ['property' => $property->id]) }}"
+                <a href="{{ route('agent.dashboard.property_edit_page_two', ['property' => $property->id]) }}"
                     class="btn px-4 text-dark-light py-2"
                     style="font-size: 14px; color: #0666EB; background-color: #0666eb47;"> <- Previous</a>
             </div>

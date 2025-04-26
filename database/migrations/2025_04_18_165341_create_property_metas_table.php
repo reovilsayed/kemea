@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use function Laravel\Prompts\table;
 
 return new class extends Migration
 {
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->integer('rooms')->nullable();
             $table->integer('bed_rooms')->nullable();
             $table->integer('bath_rooms')->nullable();
+            $table->integer('toilet')->nullable();
             $table->json('additional_feature')->nullable();
             $table->json('view')->nullable();
             $table->enum('exposer', ['North', 'South', 'East', 'West'])->nullable();
@@ -40,6 +42,11 @@ return new class extends Migration
             $table->double('agent_fees',8,2)->nullable();
             $table->boolean('is_share_other_agent')->default(0)->nullable();
             $table->integer('share_other_agent_percentage')->nullable();
+            $table->string('property_photo')->nullable();
+            $table->string('home_staging_photo')->nullable();
+            $table->string('video')->nullable();
+            $table->string('tour_embed')->nullable();
+            $table->boolean('virtual_home_staging')->default(0)->nullable();
             $table->timestamps();
         });
     }
