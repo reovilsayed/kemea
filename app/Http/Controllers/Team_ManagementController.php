@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team_Management;
 use Illuminate\Http\Request;
 
 class Team_ManagementController extends Controller
@@ -10,9 +11,10 @@ class Team_ManagementController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('agent.pages.agent_Office_Management.team.index');
+        $team_management = Team_Management::where('user_id', auth()->id())->filter($request->query('search'))->get();
+        return view('agent.pages.agent_Office_Management.team.index', compact('team_management'));
     }
 
     /**
@@ -20,7 +22,8 @@ class Team_ManagementController extends Controller
      */
     public function create()
     {
-        return view('agent.pages.agent_Office_Management.team.create');
+        $team_management = new Team_Management();
+        return view('agent.pages.agent_Office_Management.team.create', compact('team_management'));
     }
 
     /**
@@ -28,8 +31,14 @@ class Team_ManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Team_Management::create(array_merge(
+            $request->only(['first_name', 'last_name', 'email', 'phone', 'address']),
+            ['user_id' => auth()->id()]
+        ));
+
+        return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -42,24 +51,28 @@ class Team_ManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Team_Management $team_management)
     {
-        //
+        return view('agent.pages.agent_Office_Management.team.edit', compact('team_management'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Team_Management $team_Management)
     {
-        //
+        $team_Management->update($request->only(['first_name', 'last_name', 'email', 'phone', 'address']));
+
+        return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Team_Management $team_Management)
     {
-        //
+        $team_Management->delete();
+
+        return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member deleted successfully.');
     }
 }

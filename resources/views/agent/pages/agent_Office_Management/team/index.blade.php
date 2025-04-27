@@ -48,16 +48,15 @@
     <div class="row">
       <div class="col-12">
         <div class="card my-4 px-4">
-
           <div class="card-body px-0 pb-2 pt-0">
             <div class="d-flex justify-content-between w-100">
-              <p class="text-bolder text-secondary mt-5">Agents list: (130)</p>
+              <p class="text-bolder text-secondary mt-5">Agents list: ({{ $team_management->count() }})</p>
               <div class="mt-4">
                 <a href="{{ route('agent.dashboard.team_management.create') }}" class="btn btn-primary px-4 py-2"> New Agent +
                 </a>
               </div>
             </div>
-            <form action="" method="get">
+            <form action="{{ route('agent.dashboard.team_management.index') }}" method="get">
               <div class="input-group mb-3">
                 <div class="d-flex w-100">
                   <div>
@@ -67,11 +66,11 @@
 
                       </span>
                     </div>
-                    <input type="text" class="form-control  search-custom-radius" placeholder="Search Agent "
+                    <input type="text" name="search" class="form-control search-custom-radius" value="{{ request('search') }}" placeholder="Search Agent "
                       style="padding-left: 35px !important">
                   </div>
                   <div>
-                    <button class="btn btn-primary ms-3 " style="height:41px; width: 100px;">search
+                    <button class="btn btn-primary ms-3 " type="submit" style="height:41px; width: 100px;">search
                     </button>
                   </div>
                 </div>
@@ -83,21 +82,22 @@
                 <thead class="t-head">
                   <tr>
                     <th class="text-dark custom-text padding-custom ps-3">
-                    Agent Name</th>
+                      Agent Name</th>
                     <th class=" text-dark custom-text padding-custom">
-                    Address</th>
+                      Address</th>
                     <th class="text-center text-dark custom-text padding-custom">
-                    Email</th>
+                      Email</th>
                     <th class="text-center text-dark custom-text  padding-custom">
-                    Contact</th>
+                      Contact</th>
                     <th class="text-center text-dark custom-text  padding-custom">
-                    Action</th>
-                    
+                      Action</th>
+
 
 
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($team_management as $team)
                   <tr>
                     <td>
                       <div class="d-flex px-2 py-1 align-items-center">
@@ -106,188 +106,35 @@
                             class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $team->first_name }} {{ $team->last_name }}</p>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <p class="text-xs  mb-0 ">Lincoln Drive Harrisburg, PA 17101 U.S.A</p>
-
+                      <p class="text-xs mb-0">{{ $team->address }}</p>
                     </td>
                     <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">michaelminer@dayrep.com</p>
+                      <p class="text-xs mb-0">{{ $team->email }}</p>
                     </td>
-                    
                     <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">+787 608-360-0464 </p>
+                      <p class="text-xs mb-0">{{ $team->phone }}</p>
                     </td>
                     <td class="text-center">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="" class="btn btn-custom-info me-1"> <i
-                                                                class="material-symbols-rounded ">
-                                                                colorize</i></a>
-                                                        <a href="" class="btn btn-custom-danger me-1"> <i
-                                                                class="fa-solid fa-trash-can"></i></a>
-                                                        
-                                                    </div>
-                                                </td>
-
-
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <a href="{{ route('agent.dashboard.team_management.edit', $team->id) }}" class="btn btn-custom-info me-1">
+                        <i class="material-symbols-rounded ">
+                        </a>
+                        <form action="{{ route('agent.dashboard.team_management.destroy', $team->id) }}" method="POST" style="display:inline;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-custom-danger me-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </button>
+                        </form>
                       </div>
                     </td>
-                    <td>
-                      <p class="text-xs  mb-0 ">Lincoln Drive Harrisburg, PA 17101 U.S.A</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">michaelminer@dayrep.com</p>
-                    </td>
-                    
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">+787 608-360-0464 </p>
-                    </td>
-                    <td class="text-center">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="" class="btn btn-custom-info me-1"> <i
-                                                                class="material-symbols-rounded ">
-                                                                colorize</i></a>
-                                                        <a href="" class="btn btn-custom-danger me-1"> <i
-                                                                class="fa-solid fa-trash-can"></i></a>
-                                                        
-                                                    </div>
-                                                </td>
-
-
                   </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 ">Lincoln Drive Harrisburg, PA 17101 U.S.A</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">michaelminer@dayrep.com</p>
-                    </td>
-                    
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">+787 608-360-0464 </p>
-                    </td>
-                    <td class="text-center">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="" class="btn btn-custom-info me-1"> <i
-                                                                class="material-symbols-rounded ">
-                                                                colorize</i></a>
-                                                        <a href="" class="btn btn-custom-danger me-1"> <i
-                                                                class="fa-solid fa-trash-can"></i></a>
-                                                        
-                                                    </div>
-                                                </td>
-
-
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 ">Lincoln Drive Harrisburg, PA 17101 U.S.A</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">michaelminer@dayrep.com</p>
-                    </td>
-                    
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">+787 608-360-0464 </p>
-                    </td>
-                    <td class="text-center">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="" class="btn btn-custom-info me-1"> <i
-                                                                class="material-symbols-rounded ">
-                                                                colorize</i></a>
-                                                        <a href="" class="btn btn-custom-danger me-1"> <i
-                                                                class="fa-solid fa-trash-can"></i></a>
-                                                        
-                                                    </div>
-                                                </td>
-
-
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
-                            class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-
-                          <p class="text-xs font-weight-bold mb-0">Property Name</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p class="text-xs  mb-0 ">Lincoln Drive Harrisburg, PA 17101 U.S.A</p>
-
-                    </td>
-                    <td class="align-middle text-center text-sm">
-
-                      <p class="text-xs  mb-0">michaelminer@dayrep.com</p>
-                    </td>
-                    
-                    <td class="align-middle text-center">
-                      <p class="text-xs  mb-0 ">+787 608-360-0464 </p>
-                    </td>
-                    <td class="text-center">
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="" class="btn btn-custom-info me-1"> <i
-                                                                class="material-symbols-rounded ">
-                                                                colorize</i></a>
-                                                        <a href="" class="btn btn-custom-danger me-1"> <i
-                                                                class="fa-solid fa-trash-can"></i></a>
-                                                        
-                                                    </div>
-                                                </td>
-
-
-                  </tr>
+                  @endforeach
 
                 </tbody>
               </table>
