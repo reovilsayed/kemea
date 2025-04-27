@@ -7,7 +7,7 @@
 <x-agent.app>
     <div class=" padding-xxl">
         @if (auth()->user()->officeProfile)
-            <div class="d-md-flex justify-content-between align-items-center p-4">
+            <div class="d-md-flex justify-content-between align-items-center pt-0 pb-4 px-4">
                 <h4 class="m-0" style="font-size: 20px; color: #0666EB;">
                     Office Profile
                 </h4>
@@ -21,7 +21,7 @@
                     <span style="font-size: 14px;">Office Profile</span>
                 </div>
             </div>
-            <div class="container py-5">
+            <div class="container ">
               <!-- Carousel Start -->
               <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
                   <ol class="carousel-indicators">
@@ -32,7 +32,8 @@
                   <div class="carousel-inner rounded">
                       @foreach ($images as $index => $image)
                           <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                              <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="{{ Storage::url($image) }}" alt="Slide {{ $index + 1 }}">
+                              <!-- <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="{{ Storage::url($image) }}" alt="Slide {{ $index + 1 }}"> -->
+                              <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide {{ $index + 1 }}">
                           </div>
                       @endforeach
                   </div>
@@ -46,26 +47,32 @@
               <!-- Carousel End -->
           
               <!-- Company Profile Section -->
-              <div class="bg-light p-4 rounded shadow-sm">
+              <div class=" card  p-4 rounded shadow-sm pb-8">
+                  <div class="card-body">
                   <div class="row justify-content-between align-items-center">
-                      <div class="col-md-2 text-center">
-                          <img src="{{ Storage::url(auth()->user()->officeprofile?->logo) }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo">
-                          <h4 class="text-primary font-weight-bold">{{ auth()->user()->officeprofile?->name }}</h4>
+                      <div class=" d-flex w-40 gap-3 col-md-2 text-center">
+                          <!-- <img src="{{ Storage::url(auth()->user()->officeprofile?->logo) }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo"> -->
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s    " class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo">
+                          <h4 class="text-primary pt-3 font-weight-bold">{{ auth()->user()->officeprofile?->name }}</h4>
                       </div>
                       <div class="col-md-3">
                          
                           <ul class="list-unstyled mt-2">
-                              <li class="mb-1"><i class="fas fa-map-marker-alt text-primary mr-2"></i>{{ auth()->user()->officeprofile?->address }}</li>
-                              <li class="mb-1"><i class="fas fa-phone-alt text-primary mr-2"></i>{{ auth()->user()->officeprofile?->phone }}</li>
-                              <li class="mb-1"><i class="fas fa-envelope text-primary mr-2"></i>{{ auth()->user()->officeprofile?->email }}</li>
+                              <li class="mb-2">
+                                <i class="fas fa-map-marker-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->address }}</li>
+                              <li class="mb-2">
+                                <i class="fas fa-phone-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->phone }}</li>
+                              <li class="mb-2">
+                                <i class="fas fa-envelope text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->email }}</li>
                           </ul>
                       </div>
+                  </div>
                   </div>
           
                   <hr>
           
-                  <h5 class="text-secondary font-weight-bold">About:</h5>
-                  <p class="text-muted"> {{ auth()->user()->officeprofile?->details }} </p>
+                  <h4 class="text-secondary font-weight-bold">About:</h4>
+                  <p class="text-muted"> {{ auth()->user()->officeprofile?->details }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt repellat ducimus soluta alias voluptatibus dignissimos voluptatum. Qui, sint sequi quam reprehenderit aspernatur obcaecati culpa sit, cupiditate impedit quo praesentium corrupti tenetur rerum harum ad optio libero totam? Eaque, possimus voluptates ipsa ut porro veritatis accusantium aspernatur ipsam voluptas dolorum laborum? </p>
               </div>
           </div>
         @else
