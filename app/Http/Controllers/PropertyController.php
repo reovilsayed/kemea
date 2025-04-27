@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BoostPrice;
 use App\Models\Property;
 use App\Models\Property_meta;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class PropertyController extends Controller
     {
         $properties = Property::where('user_id', auth()->user()->id)->latest()->filter($request->only(['search', 'property_type']))
         ->get();
-        return view('agent.pages.properties.index', compact('properties'));
+        $boostPrices=BoostPrice::all();
+        return view('agent.pages.properties.index', compact('properties','boostPrices'));
     }
 
     /**
