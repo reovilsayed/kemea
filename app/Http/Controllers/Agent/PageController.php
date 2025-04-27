@@ -35,10 +35,6 @@ class PageController extends Controller
         return view('agent.pages.visibilities',compact('boosts'));
     }
 
-    public function sharedProperties()  {
-        return view('agent.pages.shared_properties');
-    }
-
     public function planManagement() {
         $plans=Plan::all();
         return view('agent.pages.plan_Management.planManagement',compact('plans'));
@@ -48,6 +44,7 @@ class PageController extends Controller
     }
 
     public function invoices() {
+        
         return view('agent.pages.plan_Management.invoices');
     }
     public function officeProfile() {

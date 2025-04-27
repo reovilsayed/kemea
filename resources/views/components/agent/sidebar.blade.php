@@ -40,7 +40,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{route('agent.dashboard.tour.reservation')}}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/tour-reservation') ? 'active' : '' }} " href="{{route('agent.dashboard.tour.reservation')}}">
                     {{-- <i class="material-symbols-rounded opacity-5">receipt_long</i> --}}
                     <i class="material-symbols-rounded opacity-5">calendar_month</i>
                     <span class="nav-link-text ms-1">Tour Reservation</span>
@@ -73,13 +73,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('agent.dashboard.visibilities') }}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/visibilities') ? 'active' : '' }}" href="{{ route('agent.dashboard.visibilities') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Visibilities</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared-search.index') }}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/shared-search') ? 'active' : '' }}" href="{{ route('agent.dashboard.shared-search.index') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Shared Search</span>
                 </a>
@@ -91,7 +91,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{route('agent.dashboard.messages')}}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/messages/*') ? 'active' : '' }}" href="{{route('agent.dashboard.messages')}}">
                     <i class="material-symbols-rounded opacity-5">forum</i>
                     <span class="nav-link-text ms-1">Messages</span>
                 </a>

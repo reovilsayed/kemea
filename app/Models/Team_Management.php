@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team_Management extends Model
 {
     use HasFactory;
-    protected $table = 'team_management';
+    protected $table = 'team_managements';
 
     protected $guarded = [];
 

@@ -21432,10 +21432,10 @@ hr.horizontal.gray-light {
     margin-bottom: 1.5px;
 }
 .navbar-vertical .navbar-nav > .nav-item .nav-link.active {
-    color: #fff;
+    color: #fff !important;
     border-right-width: 0;
     border-bottom-width: 0;
-    background-color: hsla(0, 0%, 78%, 0.2);
+    background-color: #0666eb !important;
 }
 .navbar-vertical
     .navbar-nav

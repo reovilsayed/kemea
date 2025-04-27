@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('team_managements', function (Blueprint $table) {
+        Schema::create('shared_properties', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
-            $table->string('email')->unique('email');
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
+            $table->string('buy_rent')->nullable();
+            $table->string('city')->nullable();
+            $table->string('property_type')->nullable();
+            $table->date('date')->nullable();
+            $table->string('badrooms')->nullable();
+            $table->double('budget', 8,2)->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('team_managements');
+        Schema::dropIfExists('shared_properties');
     }
 };
