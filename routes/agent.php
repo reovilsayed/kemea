@@ -6,6 +6,7 @@ use App\Http\Controllers\Agent\ScheduleController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OfficeProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\SharedPropertyController;
 use App\Http\Controllers\SharedSearchController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Team_ManagementController;
@@ -38,8 +39,6 @@ Route::post('property/update-page-third/{property}', [PropertyController::class,
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
 Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
 
-Route::get('shared-properties',[PageController::class,'sharedProperties'])->name('shared.properties');
-
 Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
 Route::get('affiliate',[PageController::class,'affiliate'])->name('affiliate');
 
@@ -57,3 +56,4 @@ Route::post('profile_usdateOrCreate',[OfficeProfileController::class,'officeProf
 
 Route::resource('shared-search', SharedSearchController::class);
 Route::resource('team_management', Team_ManagementController::class);
+Route::resource('shared_properties', SharedPropertyController::class);
