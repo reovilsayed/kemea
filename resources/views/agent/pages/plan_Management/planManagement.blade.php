@@ -100,8 +100,8 @@
                                             <div class="pack-header p-2">
                                                 @if (auth()->user()->plan_id == $plan->id)
                                                     <div class="castom-current-plan">Current Plan</div>
+                                                    <div class="corner-triangle"></div>
                                                 @endif
-                                                <div class="corner-triangle"></div>
                                                 <h6 class="pack-name-header text-primary pt-4 mt-2 ps-2">
                                                     {{ $plan->name }}
                                                 </h6>
