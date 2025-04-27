@@ -6,6 +6,7 @@ use App\Http\Controllers\Agent\ScheduleController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OfficeProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\SharedSearchController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Team_ManagementController;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,7 @@ Route::post('property/update-page-third/{property}', [PropertyController::class,
 
 Route::get('virtual-staging-services',[PageController::class,'virtualService'])->name('virtual.service');
 Route::get('visibilities',[PageController::class,'visibilities'])->name('visibilities');
-Route::get('shared-search',[PageController::class,'sharedSearch'])->name('shared.search');
+
 Route::get('shared-properties',[PageController::class,'sharedProperties'])->name('shared.properties');
 
 Route::get('plan-management',[PageController::class,'planManagement'])->name('plan.management');
@@ -54,4 +55,5 @@ Route::post('subscription/store/{plan}',[SubscriptionController::class,'subscrip
 Route::get('office_profile', [OfficeProfileController::class,'officeProfill'])->name('officeProfile');
 Route::post('profile_usdateOrCreate',[OfficeProfileController::class,'officeProfile_store'])->name('officeProfile_store');
 
+Route::resource('shared-search', SharedSearchController::class);
 Route::resource('team_management', Team_ManagementController::class);
