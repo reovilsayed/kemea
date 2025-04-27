@@ -90,28 +90,95 @@
     </div>
     <div class="card mx-4">
         <div class="card-body">
-            <div class="container position-relative">
-                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mb">
-                    <div class="fs-4 mb- mb-sm-0">Agent Information</div>
+            <div class="">
+                <div class="fs-4 mb- mb-sm-0 text-bold">Agent Information</div>
+            </div>
+
+            <div class="d-flex mt-2 position-relative">
+                <!-- Avatar Image -->
+                <img id="avatarImage" class="rounded-circle border border-1 border-light"
+                    src="{{ asset('agent-assets/img/team-1.jpg') }}" alt="Avatar"
+                    style="height:96px; width:96px; object-fit: cover;">
+
+                <!-- Upload Button -->
+                <div class="bg-primary text-white rounded text-center position-absolute"
+                    style="bottom: 1px; left: 37px; width: 26px; height: 17px; font-size: 11px; cursor: pointer;"
+                    onclick="document.getElementById('avatarInput').click();">
+                    #
                 </div>
-                <div class="d-flex flex-column align-items-start gap-1 position-relative" style="left: 136px; top: calc(50% - 3.5px);">
-                    <div class="link">
-                        <div class="fw-semibold">Michael A. Miner</div>
-                    </div>
-                    <div>
-                        <div class="text-muted">michaelminer@dayrep.com</div>
-                    </div>
-                </div>
-                <div class="d-flex flex-column align-items-end justify-content-center position-absolute" style="left: 20px; top: calc(50% - 29px);">
-                    <img class="rounded-circle border border-1 border-light" src="avatar-2-jpg0.png" alt="Avatar" style="width: 110px; height: 110px; object-fit: cover;">
-                    <div class="bg-primary rounded-2 px-2 py-1 d-flex flex-column align-items-center justify-content-start position-absolute" style="right: 36.36%; left: 36.35%; bottom: -5px;">
-                        <div class="text-white fs-6 fw-semibold text-center"># 1</div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <button class="btn btn-primary">Contact Agent</button>
+
+                <!-- Hidden File Input -->
+                <input type="file" id="avatarInput" accept="image/*" style="display: none;"
+                    onchange="previewAvatar(event)">
+
+                <div class="mx-4 my-4">
+                    <div class="fw-semibold text-bold">Michael A. Miner</div>
+                    <div class="text-muted">michaelminer@dayrep.com</div>
                 </div>
             </div>
+
+            <!-- JavaScript to Preview Image -->
+
+
+            <div class="row my-4">
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="name" class="form-lable"> Fast Name</label>
+                        <input type="text" class="form-control" name="name" id="name" value="" placeholder="Fast Name">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="name" class="form-lable">Last Name</label>
+                        <input type="text" class="form-control" name="name" id="name" value="" placeholder=" Name">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="phone" class="form-lable"> Phone Number</label>
+                        <input type="tel" class="form-control" name="phone" value="" id="phone"
+                            placeholder="Enter Number">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="mb-3">
+                        <label for="email" class="form-lable"> Email Address</label>
+                        <input type="email" class="form-control" value="" name="email" id="email"
+                            placeholder="Email Address">
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-12">
+                    <div class="mb-3">
+                        <label for="details" class="form-lable">Agent Address</label>
+                        <textarea class="form-control" name="details" id="details" rows="4"
+                            placeholder="Enter address"></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+
         </div>
     </div>
+    </div>
+
+    <script>
+        function previewAvatar(event) {
+            const input = event.target;
+            const avatarImage = document.getElementById('avatarImage');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    avatarImage.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </x-agent.app>
