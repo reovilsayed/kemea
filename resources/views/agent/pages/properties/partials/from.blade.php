@@ -118,17 +118,26 @@
                         <option value="{{ $type }}" {{ $property->home_type == $type ? 'selected' : '' }}>{{ $type }}</option>
                     @endforeach
                 </select>
+                @error('home_type')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-md-4 col-12">
                 <label for="Size" class="form-label text-bolder" style="color: #191C1F">Size sqm:</label>
-                <input type="number" class="form-control" name="size_sqm" id="Size" value="{{ $property->property_meta->size_sqm ?? '' }}">   
+                <input type="number" class="form-control" name="size_sqm" id="Size" value="{{ $property->property_meta->size_sqm ?? '' }}">  
+                @error('size_sqm')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror 
             </div>
             <div class="col-md-8 col-12">
                 <label for="Surface" class="form-label text-bolder" style="color: #191C1F">Surface of the Land sqm:</label>
                 <input type="number" class="form-control" name="surface_land_sqm" id="Surface" value="{{ $property->property_meta->surface_land_sqm ?? '' }}">
+                @error('surface_land_sqm')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
         </div>
 
@@ -136,14 +145,23 @@
             <div class="col-md-5 col-12">
                 <label for="Asked" class="form-label text-bolder" style="color: #191C1F">Asked Price:</label>
                 <input type="text" class="form-control" name="asked_price" id="Asked" value="{{ $property->asked_price }}">
+                @error('asked_price')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
             <div class="col-md-2 col-12 mt-0 mt-md-4 p-0 pt-md-3">
                 <label for="Flexible" class="form-label text-bolder" style="color: #191C1F">Flexible:</label>
                 <input class="form-check-input" type="checkbox" value="1" id="Flexible" name="is_price_flexible" {{ $check('is_price_flexible') }}>
+                @error('is_price_flexible')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
             <div class="col-md-3 col-12 mt-0 mt-md-4 p-0 pt-md-3">
                 <label for="Price_Upon_Request" class="form-label text-bolder" style="color: #191C1F">Price Upon Request:</label>
                 <input class="form-check-input" type="checkbox" name="is_price_request" value="1" id="Price_Upon_Request" {{ $check('is_price_request') }}>
+                @error('Price_Upon_Request')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
         </div>
 
@@ -151,10 +169,16 @@
             <div class="col-md-4 col-12">
                 <label for="Arnona" class="form-label text-bolder" style="color: #191C1F">Arnona 2 months:</label>
                 <input type="text" class="form-control" name="arnona_2_month" id="Arnona" value="{{ $property->property_meta->arnona_2_month ?? '' }}">
+                @error('arnona_2_month')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
             <div class="col-md-8 col-12">
                 <label for="Condominium" class="form-label text-bolder" style="color: #191C1F">Condominium Fees:</label>
                 <input type="number" class="form-control" name="condominimum_fees" id="Condominium" value="{{ $property->property_meta->condominimum_fees ?? '' }}">
+                @error('condominimum_fees')
+                    <div class="col-12"><small class="text-danger">{{ $message }}</small></div>
+                @enderror
             </div>
         </div>
 

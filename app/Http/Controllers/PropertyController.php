@@ -32,26 +32,26 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'property_type' => 'required|string',
-        //     'home_type' => 'nullable|string',
-        //     'city' => 'required|string',
-        //     'street' => 'required|string',
-        //     'apt_number' => 'nullable|string',
-        //     'quarter' => 'nullable|string',
-        //     'is_exclusivity' => 'required|boolean',
-        //     'is_exceptional_property' => 'required|boolean',
-        //     'is_off_marcket' => 'required|boolean',
-        //     'size_sqm' => 'nullable|numeric',
-        //     'surface_land_sqm' => 'nullable|numeric',
-        //     'asked_price' => 'nullable|numeric',
-        //     'is_price_request' => 'required|boolean',
-        //     'arnona_2_month' => 'nullable|numeric',
-        //     'condominimum_fees' => 'nullable|numeric',
-        //     'agent_fees' => 'nullable|numeric',
-        //     'is_share_other_agent' => 'required|boolean',
-        //     'share_other_agent_percentage' => 'nullable|numeric|min:0|max:100',
-        // ]);
+        $request->validate([
+            'property_type' => 'required|string',
+            'home_type' => 'required|string',
+            'city' => 'required|string',
+            'street' => 'required|string',
+            'apt_number' => 'required|string',
+            'quarter' => 'required|string',
+            'is_exclusivity' => 'required|boolean',
+            'is_exceptional_property' => 'required|boolean',
+            'is_off_marcket' => 'required|boolean',
+            'size_sqm' => 'required|numeric',
+            'surface_land_sqm' => 'required|numeric',
+            'asked_price' => 'required|numeric',
+            'is_price_request' => 'required|boolean',
+            'arnona_2_month' => 'required|numeric',
+            'condominimum_fees' => 'required|numeric',
+            'agent_fees' => 'required|numeric',
+            'is_share_other_agent' => 'required|boolean',
+            'share_other_agent_percentage' => 'required|numeric|min:0|max:100',
+        ]);
         $request->merge([
             'user_id' => auth()->user()->id,
             'slug' => str()->slug($request->input('property_type') . '-' . uniqid()),
@@ -88,10 +88,11 @@ class PropertyController extends Controller
             'is_share_other_agent',
             'share_other_agent_percentage',
         ]));
-        if ($request->input('action') === 'next') {
-            return redirect()->route('agent.dashboard.property_create_page_two', ['property' => $property->id]);
+
+        if ($request->input('action') === 'draft') {
+            $property->update(['status' => 1]);
         }
-        return back()->with('success', 'Property saved as draft.');
+        return redirect()->route('agent.dashboard.property_create_page_two', ['property' => $property->id]);
 
     }
 
@@ -130,53 +131,28 @@ class PropertyController extends Controller
         ]));
 
 
-        if ($request->input('action') === 'next') {
-            return redirect()->route('agent.dashboard.property_create_page_third', ['property' => $property->id]);
+        if ($request->input('action') === 'draft') {
+            $property->update(['status' => 1]);
         }
-        return back()->with('success', 'Property saved as draft.');
+        return redirect()->route('agent.dashboard.property_create_page_third', ['property' => $property->id]);
     }
 
     public function createPage_third(Request $request, Property $property)
     {
         $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
 
-        $data = [];
-
-        if ($request->hasFile('property_photo')) {
-            $data['property_photo'] = $request->file('property_photo')->store('property_photos', 'public');
-        }
-
-        if ($request->hasFile('video')) {
-            $data['video'] = $request->file('video')->store('property_videos', 'public');
-        }
-
-        if ($request->hasFile('tour_embed')) {
-            $data['tour_embed'] = $request->file('tour_embed')->store('3d_tour_embeds', 'public');
-        }
-
-        if ($request->hasFile('home_staging_photo')) {
-            $data['home_staging_photo'] = $request->file('home_staging_photo')->store('home_staging_photos', 'public');
-        }
-
-        if ($request->filled('virtual_home_staging')) {
-            $data['virtual_home_staging'] = $request->input('virtual_home_staging');
-        }
-        if ($request->filled('description')) {
-            $data['description'] = $request->input('description');
-        }
-
-        $property_meta->update($data);
+        $property_meta->update([
+            'description'=>$request->description
+        ]);
 
         $property->update([
             'keywords' => $request->input('keywords'),
         ]);
 
-        if ($request->input('action') === 'publish') {
+        if ($request->input('action') === 'draft') {
             $property->update(['status' => 1]);
-            return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property published successfully.');
         }
-
-        return back()->with('success', 'Property saved as draft.');
+        return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property published successfully.');
     }
 
 
@@ -230,10 +206,10 @@ class PropertyController extends Controller
             'is_share_other_agent',
             'share_other_agent_percentage',
         ]));
-        if ($request->input('action') === 'next') {
-            return redirect()->route('agent.dashboard.property_edit_page_two', ['property' => $property->id]);
+        if ($request->input('action') === 'draft') {
+            $property->update(['status' => 1]);
         }
-        return back()->with('success', 'Property saved as draft.');
+        return redirect()->route('agent.dashboard.property_edit_page_two', ['property' => $property->id]);
     }
 
     public function update_page_two(Request $request, Property $property)
@@ -267,75 +243,28 @@ class PropertyController extends Controller
             'entry_date',
         ]));
 
-        if ($request->input('action') === 'next') {
-            return redirect()->route('agent.dashboard.property_edit_page_third', ['property' => $property->id]);
+        if ($request->input('action') === 'draft') {
+            $property->update(['status' => 1]);
         }
-        return back()->with('success', 'Property saved as draft.');
+            return redirect()->route('agent.dashboard.property_edit_page_third', ['property' => $property->id]);
     }
 
     public function update_page_third(Request $request, Property $property)
     {
         $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
 
-        $data = [];
-        if ($request->hasFile('property_photo')) {
-            $image = $property->property_meta->property_photo;
-
-            if ($image) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($image);
-            }
-
-            $data['property_photo'] = $request->file('property_photo')->store('property_photos', 'public');
-        }
-
-        if ($request->hasFile('video')) {
-            $video = $property->property_meta->video;
-
-            if ($video) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($video);
-            }
-            $data['video'] = $request->file('video')->store('property_videos', 'public');
-        }
-
-        if ($request->hasFile('tour_embed')) {
-            $tour_embed = $property->property_meta->tour_embed;
-            if ($tour_embed) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($tour_embed);
-            }
-            $data['3d_tour_embed'] = $request->file('3d_tour_embed')->store('3d_tour_embeds', 'public');
-        }
-
-        if ($request->hasFile('home_staging_photo')) {
-            $home_staging_photo = $property->property_meta->home_staging_photo;
-            if ($home_staging_photo) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($home_staging_photo);
-            }
-            $data['home_staging_photo'] = $request->file('home_staging_photo')->store('home_staging_photos', 'public');
-        }
-
-        if ($request->filled('virtual_home_staging')) {
-            $virtual_home_staging = $property->property_meta->virtual_home_staging;
-            if ($virtual_home_staging) {
-                \Illuminate\Support\Facades\Storage::disk('public')->delete($virtual_home_staging);
-            }
-            $data['virtual_home_staging'] = $request->input('virtual_home_staging');
-        }
-        if ($request->filled('description')) {
-            $data['description'] = $request->input('description');
-        }
-
-        $property_meta->update($data);
+        $property_meta->update([
+            'description'=>$request->description
+        ]);
 
         $property->update([
             'keywords' => $request->input('keywords'),
         ]);
 
-        if ($request->input('action') === 'publish') {
+        if ($request->input('action') === 'draft') {
             $property->update(['status' => 1]);
-            return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property published successfully.');
         }
-
-        return back()->with('success', 'Property saved as draft.');
+        return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property published successfully.');
     }
 
     /**
@@ -344,21 +273,6 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
-        if ($property_meta->property_photo) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->property_photo);
-        }
-        if ($property_meta->video) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->video);
-        }
-        if ($property_meta->tour_embed) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->tour_embed);
-        }
-        if ($property_meta->home_staging_photo) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->home_staging_photo);
-        }
-        if ($property_meta->virtual_home_staging) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($property_meta->virtual_home_staging);
-        }
         $property_meta->delete();
         $property->delete();
         return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property deleted successfully.');
