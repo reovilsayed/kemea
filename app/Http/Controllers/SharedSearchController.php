@@ -105,7 +105,7 @@ class SharedSearchController extends Controller
             'user_id' => auth()->id(),
 
         ]);
-        return redirect()->route('agent.dashboard.shared-search.index')->with('success', 'Search saved successfully.');
+        return redirect()->route('agent.dashboard.shared-search.index')->with('success', 'Shared Search saved successfully.');
     }
 
     /**
@@ -114,6 +114,6 @@ class SharedSearchController extends Controller
     public function destroy(SharedSearch $sharedSearch)
     {
         $sharedSearch->delete();
-        return redirect()->route('agent.dashboard.shared-search.index')->with('success', 'Search saved successfully.');
+        return redirect()->route('agent.dashboard.shared-search.index')->with('success', 'Shared Search Update successfully.');
     }
 }

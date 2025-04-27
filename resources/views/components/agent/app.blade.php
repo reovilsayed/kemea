@@ -21,6 +21,7 @@
 
     <link id="pagestyle" href="{{ asset('agent-assets/css/style.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.cssF">
+    <link rel="stylesheet" href="{{ asset('agent-assets/css/toastr.css') }}" />
     @stack('css')
     <style>
         .offcanvas-header {
@@ -60,7 +61,8 @@
             margin-left: 22px;
             position: relative;
         }
-        .notification-time{
+
+        .notification-time {
             margin-bottom: 20px;
         }
     </style>
@@ -217,6 +219,9 @@
         {{ $slot }}
 
 
+
+
+
     </main>
 
 
@@ -275,7 +280,7 @@
                         </div>
 
 
-                        
+
                     </div>
                     <div class="mx-3 offcanvas-notification">
                         <p class="mb-2 "><strong class="text-dark"> Ray Arnold </strong> left 6 comments on
@@ -318,11 +323,51 @@
         </div>
 
     </div>
+
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center p-4" style="border-radius: 12px;">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <i class="material-symbols-rounded text-primary" style="font-size: 50px;">verified</i>
+                    </div>
+                    <h3 class="mb-3" style="color:#0d6efd;">Success</h3>
+                    <p class="mb-4">{{ session('success') }}</p>
+                    <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="{{ asset('agent-assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
     <script src="{{ asset('agent-assets/js/plugins/chartjs.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('agent-assets/js/toastr.min.js') }}"></script>
+    @if (session()->has('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var modal = new bootstrap.Modal(document.getElementById('exampleModalCenter'));
+                modal.show();
+            });
+        </script>
+    @endif
+
+    @if (session()->has('errors'))
+    <script>
+            @foreach ($errors->all() as $error)
+                toastr.error('{{ $error }}')
+            @endforeach
+        </script>
+    @endif
+
     @stack('scripts')
 
 
@@ -336,6 +381,8 @@
         }
     </script>
     <script src="{{ asset('agent-assets/js/material-dashboard.min2167.js?v=3.2.0') }}"></script>
+
+
 
 </body>
 
