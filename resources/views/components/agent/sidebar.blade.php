@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('agent/dashboard') ? 'active' : '' }}  text-dark" href="{{route('agent.dashboard.dashboard')}}">
+                <a class="nav-link active bg-gradient-primary text-white" href="dashboard.html">
                     <span class="material-symbols-rounded opacity-5">
                         speed
                     </span>
@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->is('agent/dashboard/shared-properties') ? 'active' : '' }}" href="{{ route('agent.dashboard.shared.properties') }}">
+                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared.properties') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Shared Properties</span>
                 </a>
