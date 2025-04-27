@@ -44,6 +44,7 @@ class PageController extends Controller
     }
 
     public function invoices() {
+        
         return view('agent.pages.plan_Management.invoices');
     }
     public function officeProfile() {
