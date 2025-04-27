@@ -158,38 +158,65 @@
                 </div>
 
                 <div class="modal-body">
-                   
-                    <div id="paypal-button-container" style="display:none;"></div>
+                    <form action="" method="post" id="payment">
+                        @csrf
+                        <input type="hidden" name="payment_id" id="payment_id">
+
+                        <div id="paypal-button-container"></div>
+
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 
-    @push('scripts')
-        <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&components=buttons">
-        </script>
-     
-        <script>
-            paypal.Buttons({
-              createOrder: function(data, actions) {
+    {{-- @push('scripts') --}}
+
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=EUR"></script>
+    <script>
+        let planId;
+
+        const paymentForm = document.getElementById('payment');
+        const modal = document.getElementById('paypalModal');
+        modal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            planId = button.getAttribute('data-plan-id');
+            paymentForm.action = `{{ route('agent.dashboard.subscribe', ':plan') }}`.replace(':plan', planId);
+        });
+        paypal.Buttons({
+
+            createOrder: function(data, actions) {
                 return actions.order.create({
-                  purchase_units: [{
-                    amount: {
-                      value: '10.00'
-                    }
-                  }]
+                    purchase_units: [{
+                        amount: {
+                            currency_code: 'EUR',
+                            value: 120
+                        }
+                    }]
                 });
-              },
-              onApprove: function(data, actions) {
+            },
+            onApprove: function(data, actions) {
+
+                // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
-                  alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                  // 👉 Here you can call your server to save the payment info
+                    // This function shows a transaction success message to your buyer.
+
+
+                    var form = document.getElementById('payment');
+
+                    var paymentId = document.getElementById('payment_id').value = details.id;
+                    console.log(paymentId);
+                    form.submit();
+
+
                 });
-              }
-            }).render('#paypal-button-container');
-          </script>
-      
-    @endpush
+            },
+
+        }).render('#paypal-button-container');
+    </script>
+
+    {{-- @endpush --}}
 
 
 

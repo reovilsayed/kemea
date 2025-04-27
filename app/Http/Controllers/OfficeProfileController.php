@@ -23,11 +23,22 @@ class OfficeProfileController extends Controller
             }
             $logo = $request->file('logo')->store('profiles', 'public');
         }
-        if ($request->hasFile('image')) {
-            if (auth()->user()->officeProfile && storage::exists(auth()->user()->officeProfile->image)) {
-                Storage::delete(auth()->user()->officeProfile->image);
+        if ($request->images) {
+            if (auth()->user()->officeProfile && auth()->user()->officeProfile->image) {
+                $oldImages = json_decode(auth()->user()->officeProfile->image, true);
+        
+                if (is_array($oldImages)) {
+                    foreach ($oldImages as $oldImage) {
+                        if (Storage::exists($oldImage)) {
+                            Storage::delete($oldImage);
+                        }
+                    }
+                }
             }
-            $image = $request->file('image')->store('profiles', 'public');
+            $images = []; 
+            foreach ($request->images as $image) {
+                $images[] = $image->store('profiles', 'public');
+            }
         }
 
         OfficeProfile::updateOrCreate([
@@ -39,7 +50,7 @@ class OfficeProfileController extends Controller
             'address' => $request->address,
             'details' => $request->details,
             'logo' => $logo,
-            'image' => $image,
+            'images' => json_encode($images),
         ]);
 
       

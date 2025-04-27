@@ -21,20 +21,41 @@ class SubscriptionController extends Controller
         $this->apiUrl = env('PAYPAL_MODE') == 'sandbox' ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';
     }
 
-    public function subscription(Request $request)
+    public function subscription(Request $request,Plan $plan)
     {
-        $plan = Plan::find($request->plan_id);
+       
+        
 
-        Subscription::create([
-            'user_id' => auth()->id(),
-            'plan_id' => $plan,
-            'paypal_order_id' => $request->order_id,
-            'amount' => $request->amount,
-            'status' => 'active',
-            'starts_at' => now(),
-            'ends_at' => Carbon::now()->addMonth(), 
-        ]);
-        dd($request->all());
+        $endpoint = ['local' => 'https://api.sandbox.paypal.com/v2/checkout/orders/', 'production' => 'https://api-m.paypal.com/v2/checkout/orders/'];
+        $token = $this->getAccessToken();
+        $paypal_status = Http::withToken($token)->get($endpoint[env('APP_ENV')].$request->payment_id);
+        $paypal_body = json_decode($paypal_status->body());
+
+
+        $duration = $plan->type === 'yearly' ? 12 : 1;
+        if($paypal_body->status=='COMPLETED'){
+            Subscription::create([
+                'user_id' => auth()->id(),
+                'plan_id' => $plan->id,
+                'payment_id' => $paypal_body->id,
+                'amount' => $plan->price,
+                'status' => 'active',
+                'start_date' => now(),
+                'end_date' =>  now()->addMonths($duration),
+                'status' =>  1,
+            ]);
+            auth()->user()->update([
+                'is_paid'=>1,
+                'expired_at'=>now()->addMonths($duration),
+                'plan_id'=>$plan->id,
+            ]);
+            return redirect()->route('agent.dashboard.plan.management')->with('success','Subscription done');
+        }else{
+            return back()->withErrors('We seem to be experiencing a technical problem. Please try again later.');
+        }
+
+     
+    
     }
 
 
@@ -46,45 +67,9 @@ class SubscriptionController extends Controller
             ->post($this->apiUrl . '/v1/oauth2/token', [
                 'grant_type' => 'client_credentials'
             ]);
-
+ 
         return $response->json()['access_token'];
     }
 
-    public function createOrder(Request $request)
-    {
-      
-        $accessToken = $this->getAccessToken();
-
-
-        $response = Http::withToken($accessToken)
-            ->post($this->apiUrl . '/v2/checkout/orders', [
-                'intent' => 'CAPTURE',
-                'purchase_units' => [
-                    [
-                        'amount' => [
-                            'currency_code' => 'USD', // or your currency
-                            'value' => 120
-                        ]
-                    ]
-                ]
-            ]);
-
-
-        return response()->json([
-            'id' => $response->json()['id']
-        ]);
-    }
-
-    public function captureOrder($orderId)
-    {
-     
-
-        $accessToken = $this->getAccessToken();
-
-        $response = Http::withToken($accessToken)
-            ->post($this->apiUrl . "/v2/checkout/orders/{$orderId}/capture");
-            dd($response);
-
-        return response()->json($response->json());
-    }
+   
 }
