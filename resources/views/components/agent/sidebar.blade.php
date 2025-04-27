@@ -79,7 +79,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared.search') }}">
+                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared-search.index') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Shared Search</span>
                 </a>

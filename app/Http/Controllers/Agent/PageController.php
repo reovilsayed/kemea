@@ -34,9 +34,7 @@ class PageController extends Controller
         $boosts=Boost::where('user_id',auth()->id())->latest()->get();
         return view('agent.pages.visibilities',compact('boosts'));
     }
-    public function sharedSearch(){
-        return view('agent.pages.shared_search');
-    }
+
     public function sharedProperties()  {
         return view('agent.pages.shared_properties');
     }
