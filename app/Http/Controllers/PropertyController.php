@@ -274,8 +274,6 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
-        $property_meta->delete();
         $property->delete();
         return redirect()->route('agent.dashboard.properties.index')->with('success', 'Property deleted successfully.');
     }

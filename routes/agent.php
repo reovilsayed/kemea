@@ -8,6 +8,7 @@ use App\Http\Controllers\OfficeProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SharedSearchController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\Team_ManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,7 +45,7 @@ Route::get('affiliate',[PageController::class,'affiliate'])->name('affiliate');
 
 Route::get('/invoices',[PageController::class,'invoices'])->name('invoices');
 Route::get('office-profile',[PageController::class,'officeProfile'])->name('office.profile');
-Route::get('/team_management',[PageController::class,'teamManagement'])->name('team.management');
+// Route::get('/team_management',[PageController::class,'teamManagement'])->name('team.management');
 Route::get('tour-reservation',[PageController::class,'tourReservation'])->name('tour.reservation');
 Route::post('schedule-store',[ScheduleController::class,'store'])->name('schedule.store');
 Route::post('boost-store',[BoostController::class,'store'])->name('boost.store');
@@ -55,3 +56,4 @@ Route::get('office_profile', [OfficeProfileController::class,'officeProfill'])->
 Route::post('profile_usdateOrCreate',[OfficeProfileController::class,'officeProfile_store'])->name('officeProfile_store');
 
 Route::resource('shared-search', SharedSearchController::class);
+Route::resource('team_management', Team_ManagementController::class);
