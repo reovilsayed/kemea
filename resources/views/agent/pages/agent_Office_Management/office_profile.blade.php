@@ -5,6 +5,18 @@
             : [];
 @endphp
 <x-agent.app>
+  <style>
+    .carousel-indicators{
+      bottom: -50px
+    }
+    .carousel-indicators .active {
+    background-color: #0666EB !important;
+}
+.carousel-indicators [data-bs-target]{
+  background-color: #D9D9D9f !important;
+  
+}
+  </style>
     <div class=" padding-xxl">
         @if (auth()->user()->officeProfile)
             <div class="d-md-flex justify-content-between align-items-center pt-0 pb-4 px-4">
@@ -21,30 +33,35 @@
                     <span style="font-size: 14px;">Office Profile</span>
                 </div>
             </div>
-            <div class="container ">
-              <!-- Carousel Start -->
-              <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
-                  <ol class="carousel-indicators">
-                      @foreach ($images as $index => $image)
-                          <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
-                      @endforeach
-                  </ol>
-                  <div class="carousel-inner rounded">
-                      @foreach ($images as $index => $image)
-                          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                              <!-- <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="{{ Storage::url($image) }}" alt="Slide {{ $index + 1 }}"> -->
-                              <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide {{ $index + 1 }}">
-                          </div>
-                      @endforeach
+            <div class="container">
+              <div id="carouselExampleCaptions" class="carousel slide mb-5"      data-bs-ride="carousel">
+                <div class="carousel-indicators ">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0" style="height: 10px;width: 10px;border-radius:50%;"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" style="height: 10px;width: 10px;border-radius:50%;"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" style="height: 10px;width: 10px;border-radius:50%;"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                  <div class="carousel-item active">
+                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
+                    <div class="carousel-caption d-none d-md-block">
+                     
+                    </div>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                  </a>
-              </div>
-              <!-- Carousel End -->
+                  <div class="carousel-item">
+                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                  </div>
+                </div>
+                
+               </div>
           
               <!-- Company Profile Section -->
               <div class=" card  p-4 rounded shadow-sm pb-8">
