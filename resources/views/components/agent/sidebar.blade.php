@@ -59,7 +59,7 @@
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="{{ route('agent.dashboard.office.profile') }}"
                                 class="nav-link ms-4  text-dark bg-white">Office Profile</a></li>
-                        <li><a href="{{ route('agent.dashboard.team.management') }}"
+                        <li><a href="{{ route('agent.dashboard.team_management.index') }}"
                                 class="nav-link ms-4  text-dark bg-white">Team Management</a></li>
 
                     </ul>

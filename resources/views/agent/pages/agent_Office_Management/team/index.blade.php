@@ -53,8 +53,8 @@
             <div class="d-flex justify-content-between w-100">
               <p class="text-bolder text-secondary mt-5">Agents list: (130)</p>
               <div class="mt-4">
-                <button class="btn btn-primary ms-3 " style="height:41px; width: 120px;"> New Agent +
-                </button>
+                <a href="{{ route('agent.dashboard.team_management.create') }}" class="btn btn-primary px-4 py-2"> New Agent +
+                </a>
               </div>
             </div>
             <form action="" method="get">
