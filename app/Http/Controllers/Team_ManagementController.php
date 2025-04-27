@@ -31,9 +31,15 @@ class Team_ManagementController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('team_managements', 'public');
+        }
         Team_Management::create(array_merge(
             $request->only(['first_name', 'last_name', 'email', 'phone', 'address']),
-            ['user_id' => auth()->id()]
+            [
+                'user_id' => auth()->id(),
+                'image' => $image ?? null
+            ]
         ));
 
         return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member created successfully.');
@@ -61,8 +67,10 @@ class Team_ManagementController extends Controller
      */
     public function update(Request $request, Team_Management $team_Management)
     {
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image')->store('team_managements', 'public');
+        // }
         $team_Management->update($request->only(['first_name', 'last_name', 'email', 'phone', 'address']));
-
         return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member updated successfully.');
     }
 

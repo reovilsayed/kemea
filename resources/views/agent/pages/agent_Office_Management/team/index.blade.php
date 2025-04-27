@@ -102,7 +102,7 @@
                     <td>
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
+                          <img src="{{ Storage::url($team->image) }}"
                             class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
@@ -122,7 +122,7 @@
                     <td class="text-center">
                       <div class="d-flex justify-content-center align-items-center">
                         <a href="{{ route('agent.dashboard.team_management.edit', $team->id) }}" class="btn btn-custom-info me-1">
-                        <i class="material-symbols-rounded ">
+                        <i class="material-symbols-rounded">edit</i>
                         </a>
                         <form action="{{ route('agent.dashboard.team_management.destroy', $team->id) }}" method="POST" style="display:inline;">
                           @csrf

@@ -88,7 +88,7 @@
             <span style="font-size: 14px;">Add New Property</span>
         </div>
     </div>
-    <form action="{{ route('agent.dashboard.team_management.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('agent.dashboard.team_management.update', $team_management) }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="card mx-4">
@@ -100,7 +100,7 @@
                 <div class="d-flex mt-2 position-relative">
                     <!-- Avatar Image -->
                     <img id="avatarImage" class="rounded-circle border border-1 border-light"
-                        src="{{ asset('agent-assets/img/team-1.jpg') }}" alt="Avatar"
+                        src="{{ Storage::url($team_management->image) }}" alt="Avatar"
                         style="height:96px; width:96px; object-fit: cover;">
 
                     <!-- Upload Button -->
@@ -127,27 +127,27 @@
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="name" class="form-lable"> Fast Name</label>
-                            <input type="text" class="form-control" name="first_name" id="name" value="" placeholder="Fast Name">
+                            <input type="text" class="form-control" name="first_name" id="name" value="{{ $team_management->first_name }}" placeholder="Fast Name">
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="name" class="form-lable">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" id="name" value="" placeholder=" Name">
+                            <input type="text" class="form-control" name="last_name" id="name" value="{{ $team_management->last_name }}" placeholder=" Name">
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="phone" class="form-lable"> Phone Number</label>
-                            <input type="tel" class="form-control" name="phone" value="" id="phone"
+                            <input type="tel" class="form-control" name="phone" value="{{ $team_management->phone }}" id="phone"
                                 placeholder="Enter Number">
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="mb-3">
                             <label for="email" class="form-lable"> Email Address</label>
-                            <input type="email" class="form-control" value="" name="email" id="email"
+                            <input type="email" class="form-control" value="{{ $team_management->email }}" name="email" id="email"
                                 placeholder="Email Address">
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                         <div class="mb-3">
                             <label for="details" class="form-lable">Agent Address</label>
                             <textarea class="form-control" name="address" id="details" rows="4"
-                                placeholder="Enter address"></textarea>
+                                placeholder="Enter address">{{ $team_management->address }}</textarea>
                         </div>
                     </div>
 
