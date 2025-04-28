@@ -13,7 +13,13 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function dashbaord()  {
-        return view('agent.pages.dashboard');
+        $total_properties=Property::where('user_id',auth()->id())->count();
+        $total_properties_rent=Property::where('user_id',auth()->id())->where('property_type','Rent')->count();
+        $total_properties_sell=Property::where('user_id',auth()->id())->where('property_type','Sell')->count();
+        $total_revenue=Charge::where('user_id',auth()->id())->sum('total');
+        $properties=Property::where('user_id',auth()->id())->latest()->get();
+
+        return view('agent.pages.dashboard',compact('total_properties','total_properties_rent','total_properties_sell','total_revenue','properties'));
     }
     public function propertyCreatePageTwo(Property $property) {
         return view('agent.pages.properties.createTwo',compact('property'));
