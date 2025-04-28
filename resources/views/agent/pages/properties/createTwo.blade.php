@@ -41,9 +41,9 @@
             </div>
             <div class="col-md-6 col-12">
                 <div class="d-flex justify-content-md-end align-items-center">
-                    <button type="submit" name="action" value="draft" class="btn btn-outline-primary px-4 me-4"
+                    <!-- <button type="submit" name="action" value="draft" class="btn btn-outline-primary px-4 me-4"
                         style="font-size: 14px;"><img src="{{ asset('agent-assets/img/save.svg') }}" alt="">
-                        Save Draft</button>
+                        Save Draft</button> -->
                     <button type="submit" name="action" value="next" class="btn btn-primary px-4 py-2"
                         style="font-size: 14px;">Next -></button>
                 </div>

@@ -161,9 +161,15 @@
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </button>
                                                 </form>
-                                                <a href="{{ route('agent.dashboard.shared_properties.show', $shared->id) }}" class="btn btn-custom-primary">
-                                                    <i class="material-symbols-rounded">arrow_forward</i>
-                                                </a>
+                                                <button class="btn btn-custom-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" 
+                        data-buy-rent="{{ $shared->buy_rent }}"
+                        data-city="{{ $shared->city }}"
+                        data-property-type="{{ $shared->property_type }}"
+                        data-bedrooms="{{ $shared->badrooms }}"
+                        data-budget="{{ number_format($shared->budget, 2) }}"
+                        data-date-entry="{{ $shared->date }}">
+                    <i class="material-symbols-rounded">arrow_forward</i>
+                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -217,4 +223,62 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">My Shared Properties</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark text-dark fs-4"></i></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-borderless">
+        <tbody>
+                <tr>
+                  <th scope="row">Buy/Rent</th>
+                  <td class="text-end" id="modal-buy-rent"></td>
+                </tr>
+                <tr>
+                  <th scope="row">City</th>
+                  <td class="text-end" id="modal-city"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Property Type</th>
+                  <td class="text-end" id="modal-property-type"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Bedrooms</th>
+                  <td class="text-end" id="modal-bedrooms"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Budget</th>
+                  <td class="text-end" id="modal-budget"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Date of Entry</th>
+                  <td class="text-end" id="modal-date-entry"></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+@push('scripts')
+    <script>
+        const modal = document.getElementById('exampleModal');
+        modal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('modal-buy-rent').textContent = button.getAttribute('data-buy-rent');
+            document.getElementById('modal-city').textContent = button.getAttribute('data-city');
+            document.getElementById('modal-property-type').textContent = button.getAttribute('data-property-type');
+            document.getElementById('modal-bedrooms').textContent = button.getAttribute('data-bedrooms');
+            document.getElementById('modal-budget').textContent = '$' + button.getAttribute('data-budget');
+            document.getElementById('modal-date-entry').textContent = button.getAttribute('data-date-entry');
+        });
+    </script>
+@endpush
 </x-agent.app>

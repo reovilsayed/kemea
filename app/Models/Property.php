@@ -15,6 +15,10 @@ class Property extends Model
     {
         return $this->hasOne(Property_meta::class);
     }
+    public function property_meta_attachments()
+    {
+        return $this->hasOne(PropertyMetaAttachment::class, 'property_id');
+    }
     public function boost()
     {
 

@@ -205,7 +205,7 @@
         $selectedOptions = json_decode($property->visivility_options, true) ?? [];
     @endphp
     
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
         @php
             $options = [
                 'New Ad',
@@ -230,7 +230,7 @@
                 </div>
             </div>
         @endforeach
-    </div>
+    </div> -->
     
     </div>
 </div>

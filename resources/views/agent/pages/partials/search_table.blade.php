@@ -45,9 +45,9 @@
                                         <button type="submit" class="btn btn-custom-danger me-1"> <i
                                                 class="fa-solid fa-trash-can"></i></button>
                                     </form>
-                                    <a href="" class="btn btn-custom-primary"> <i
-                                            class="material-symbols-rounded ">
-                                            arrow_forward</i></a>
+                                    <button class="btn btn-custom-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-search_typet="{{ $search->search_type }}" data-property_type="{{ $search->property_type }}" data-bedrooms="{{ $search->bedrooms }}" data-budget="{{ $search->budget }}" data-date_of_entry="{{ $search->date_of_entry }}" data-City="{{ $search->city }}" data-comment="{{ $search->comment }}">
+                    <i class="material-symbols-rounded">arrow_forward</i>
+                </button>
                                 </div>
                             </td>
                         @endif

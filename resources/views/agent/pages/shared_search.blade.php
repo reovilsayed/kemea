@@ -55,6 +55,48 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">My Shared Properties</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark text-dark fs-4"></i></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-borderless">
+        <tbody>
+                <tr>
+                  <th scope="row">Buy/Rent</th>
+                  <td class="text-end" id="modal-search_typet"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Property Type</th>
+                  <td class="text-end" id="modal-property_type"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Bedrooms</th>
+                  <td class="text-end" id="modal-bedrooms"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Budget</th>
+                  <td class="text-end" id="modal-budget"></td>
+                </tr>
+
+                <tr>
+                  <th scope="row">City</th>
+                  <td class="text-end" id="modal-City"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Date of Entry</th>
+                  <td class="text-end" id="modal-date_of_entry"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p  id="modal-comment"></P>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script>
         function updateUrl() {
@@ -64,6 +106,20 @@
 
             window.location.href = newUrl; // Redirect to the new URL
         }
+    </script>
+
+    <script>
+        const modal = document.getElementById('exampleModal');
+        modal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            document.getElementById('modal-search_typet').textContent = button.getAttribute('data-search_typet');
+            document.getElementById('modal-property_type').textContent = button.getAttribute('data-property_type');
+            document.getElementById('modal-bedrooms').textContent = button.getAttribute('data-bedrooms');
+            document.getElementById('modal-budget').textContent = '$' + button.getAttribute('data-budget');
+            document.getElementById('modal-date_of_entry').textContent = button.getAttribute('date_of_entry');
+            document.getElementById('modal-City').textContent = button.getAttribute('City');
+            document.getElementById('modal-comment').textContent = button.getAttribute('comment');
+        });
     </script>
 
 </x-agent.app>

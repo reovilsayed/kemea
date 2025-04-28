@@ -38,8 +38,8 @@
                         <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span
                                 class="text-primary">click to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</p>
-                        <input type="file" id="propertyPhoto" name="property_photo" class="hidden-input"
-                            accept="image/png, image/jpeg, image/gif">
+                        <input type="file" id="propertyPhoto" name="property_photos[]" class="hidden-input"
+                            accept="image/png, image/jpeg, image/gif" multiple>
                     </label>
                 </div>
                 <div class="text-end">
@@ -67,8 +67,8 @@
                         <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span
                                 class="text-primary">click to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</p>
-                        <input type="file" id="homeStaging" name="home_staging_photo" class="hidden-input"
-                            accept="image/png, image/jpeg, image/gif">
+                        <input type="file" id="homeStaging" name="home_staging_photos[]" class="hidden-input"
+                            accept="image/png, image/jpeg, image/gif" multiple>
                     </label>
                 </div>
             </div>
@@ -85,8 +85,8 @@
                         <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span
                                 class="text-primary">click to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. MP4, MOV files are allowed</p>
-                        <input type="file" id="videoUpload" name="video" class="hidden-input"
-                            accept="video/mp4, video/quicktime">
+                        <input type="file" id="videoUpload" name="videos[]" class="hidden-input"
+                            accept="video/mp4, video/quicktime" multiple>
                     </label>
                 </div>
             </div>
@@ -105,8 +105,8 @@
                         <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span
                                 class="text-primary">click to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. MP4, MOV files are allowed</p>
-                        <input type="file" id="tourEmbed" name="tour_embed" class="hidden-input"
-                            accept="video/mp4, video/quicktime">
+                        <input type="file" id="tourEmbed" name="tour_embed[]" class="hidden-input"
+                            accept="video/mp4, video/quicktime" multiple>
                     </label>
                 </div>
             </div>
