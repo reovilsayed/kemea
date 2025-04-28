@@ -30,4 +30,8 @@ class Subscription extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+    public function charges()
+    {
+        return $this->morphMany(Charge::class, 'chargeable');
+    }
 }

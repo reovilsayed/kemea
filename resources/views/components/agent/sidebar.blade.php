@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared.properties') }}">
+                <a class="nav-link text-dark" href="{{ route('agent.dashboard.shared_properties.index') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Shared Properties</span>
                 </a>

@@ -27,6 +27,7 @@
 
 
               <div class="table-responsive p-0 border border-radius-2xl">
+                @if($charges->count()> 0)
                 <table class="table align-items-center mb-0">
                   <thead class="t-head">
                     <tr>
@@ -41,13 +42,15 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($charges as $charge)
+                        
                     <tr>
                       <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
+                        {{$charge->created_at->format('Y-m-d')}}
                       </td>
 
                       <td class="ps-0 text-xs fw-bold">
-                        49.99
+                        {{Sohoj::price($charge->total)}}
                       </td>
 
                       <td class="d-flex justify-content-center align-items-center">
@@ -57,104 +60,14 @@
                       </td>
 
                     </tr>
+                    @endforeach
 
                   </tbody>
-                  <tbody>
-                    <tr>
-                      <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
-                      </td>
-
-                      <td class="ps-0 text-xs fw-bold">
-                        49.99
-                      </td>
-
-                      <td class="d-flex justify-content-center align-items-center">
-                        <div class="btn btn-primary">Download
-                          <i class="fa-solid fa-download"></i>
-                        </div>
-                      </td>
-
-                    </tr>
-
-                  </tbody>
-                  <tbody>
-                    <tr>
-                      <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
-                      </td>
-
-                      <td class="ps-0 text-xs fw-bold">
-                        49.99
-                      </td>
-
-                      <td class="d-flex justify-content-center align-items-center">
-                        <div class="btn btn-primary">Download
-                          <i class="fa-solid fa-download"></i>
-                        </div>
-                      </td>
-
-                    </tr>
-
-                  </tbody>
-                  <tbody>
-                    <tr>
-                      <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
-                      </td>
-
-                      <td class="ps-0 text-xs fw-bold">
-                        49.99
-                      </td>
-
-                      <td class="d-flex justify-content-center align-items-center">
-                        <div class="btn btn-primary">Download
-                          <i class="fa-solid fa-download"></i>
-                        </div>
-                      </td>
-
-                    </tr>
-
-                  </tbody>
-                  <tbody>
-                    <tr>
-                      <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
-                      </td>
-
-                      <td class="ps-0 text-xs fw-bold">
-                        49.99
-                      </td>
-
-                      <td class="d-flex justify-content-center align-items-center">
-                        <div class="btn btn-primary">Download
-                          <i class="fa-solid fa-download"></i>
-                        </div>
-                      </td>
-
-                    </tr>
-
-                  </tbody>
-                  <tbody>
-                    <tr>
-                      <td class="fs-6 text-xs fw-bold px-4">
-                        2025-03-01
-                      </td>
-
-                      <td class="ps-0 text-xs fw-bold">
-                        49.99
-                      </td>
-
-                      <td class="d-flex justify-content-center align-items-center">
-                        <div class="btn btn-primary">Download
-                          <i class="fa-solid fa-download"></i>
-                        </div>
-                      </td>
-
-                    </tr>
-
-                  </tbody>
+     
                 </table>
+                @else
+                <p class="text-center text-danger">Data not found</p>
+                @endif
               </div>
 
             </div>

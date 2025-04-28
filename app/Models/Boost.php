@@ -16,4 +16,8 @@ class Boost extends Model
     public function property() {
         return $this->belongsTo(Property::class,'property_id');
     }
+    public function charges()
+    {
+        return $this->morphMany(Charge::class, 'chargeable');
+    }
 }
