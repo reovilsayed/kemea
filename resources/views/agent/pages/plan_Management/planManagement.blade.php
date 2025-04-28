@@ -131,7 +131,7 @@
                                                 <button type="button" class="btn btn-primary w-100"
                                                     data-bs-toggle="modal" data-bs-target="#paypalModal"
                                                     data-plan-id="{{ $plan->id }}">
-                                                    Renew
+                                                    {{ auth()->user()->plan_id ? 'Renew' : 'Subscribe'}}
                                                 </button>
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Renew <span id="modal-plan-name"></span></h5>
+                    <h5 class="modal-title"> {{ auth()->user()->plan_id ? 'Renew' : 'Subscribe'}} <span id="modal-plan-name"></span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 

@@ -17,7 +17,7 @@ class BoostPriceSeeder extends Seeder
         if (!$role->exists) {
             $role->fill([
                 'price' =>10,
-                'name' =>'3 days',
+                'name' =>'Top Ad',
                 'status' =>1,
             ])->save();
         }
@@ -25,7 +25,7 @@ class BoostPriceSeeder extends Seeder
         if (!$role->exists) {
             $role->fill([
                 'price' =>20,
-                'name' =>'5 days',
+                'name' =>'Prefered Ad',
                 'status' =>1,
             ])->save();
         }
@@ -33,7 +33,14 @@ class BoostPriceSeeder extends Seeder
         if (!$role->exists) {
             $role->fill([
                 'price' =>30,
-                'name' =>'7 days',
+                'name' =>'Large Visibility',
+                'status' =>1,
+            ])->save();
+        }
+        if (!$role->exists) {
+            $role->fill([
+                'price' =>30,
+                'name' =>'Video First Add',
                 'status' =>1,
             ])->save();
         }

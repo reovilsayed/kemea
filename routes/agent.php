@@ -48,6 +48,9 @@ Route::get('office-profile',[PageController::class,'officeProfile'])->name('offi
 Route::get('tour-reservation',[PageController::class,'tourReservation'])->name('tour.reservation');
 Route::post('schedule-store',[ScheduleController::class,'store'])->name('schedule.store');
 Route::post('boost-store',[BoostController::class,'store'])->name('boost.store');
+Route::get('boost-payment/{boost}',[BoostController::class,'payment'])->name('boost.payment');
+Route::post('boost-payment/store/{boost}',[SubscriptionController::class,'paymentStore'])->name('boost.payment.store');
+
 Route::get('messages/{id?}',[MessageController::class,'messages'])->name('messages');
 Route::post('subscription/store/{plan}',[SubscriptionController::class,'subscription'])->name('subscribe');
 

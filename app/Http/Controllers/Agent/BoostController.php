@@ -18,7 +18,7 @@ class BoostController extends Controller
        $property=Property::find($request->property_id);
 
         $boostPrice = BoostPrice::find($request->push_price_id);
-        Boost::create([
+        $boost=Boost::create([
             'user_id'=>auth()->id(),
             'property_id'=>$property->id,
             'boost_price_id'=>$boostPrice->id,
@@ -26,10 +26,17 @@ class BoostController extends Controller
             'start_day' => Carbon::now(),
             'end_day' => Carbon::now()->addDays($boostPrice->days),
         ]);
-        $property->update([
-            'is_boosted'=>1,
-        ]);
-        return back();
+     
+        return redirect()->route('agent.dashboard.boost.payment',$boost)->with('success',"Boost Create Successfully");
 
+    }
+    public function payment(Boost $boost){
+        if($boost->user_id !==auth()->id() && $boost->status=1 ){
+            return redirect()->route('agent.dashboard.visibilities');
+        }
+        // dd($boost);
+        return view('agent.pages.boost_payment',compact('boost'));
+
+      
     }
 }

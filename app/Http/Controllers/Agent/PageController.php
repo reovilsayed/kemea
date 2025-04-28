@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
 use App\Models\Boost;
+use App\Models\Charge;
 use App\Models\Plan;
 use App\Models\Property;
 use App\Models\Property_meta;
@@ -44,8 +45,9 @@ class PageController extends Controller
     }
 
     public function invoices() {
+        $charges=Charge::where('user_id',auth()->id())->latest()->get();
         
-        return view('agent.pages.plan_Management.invoices');
+        return view('agent.pages.plan_Management.invoices',compact('charges'));
     }
     public function officeProfile() {
         return view('agent.pages.agent_Office_Management.office_profile');
