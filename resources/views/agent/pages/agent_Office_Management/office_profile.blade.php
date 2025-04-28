@@ -5,18 +5,21 @@
             : [];
 @endphp
 <x-agent.app>
-  <style>
-    .carousel-indicators{
-      bottom: -50px
-    }
-    .carousel-indicators .active {
-    background-color: #0666EB !important;
-}
-.carousel-indicators [data-bs-target]{
-  background-color: #D9D9D9f !important;
-  
-}
-  </style>
+    <style>
+        .carousel-indicators {
+            bottom: -50px
+        }
+        .carousel-indicators [data-bs-target] {
+            background-color: #D9D9D9 !important;
+
+        }
+
+        .carousel-indicators .active {
+            background-color: #0666EB !important;
+        }
+
+      
+    </style>
     <div class=" padding-xxl">
         @if (auth()->user()->officeProfile)
             <div class="d-md-flex justify-content-between align-items-center pt-0 pb-4 px-4">
@@ -34,64 +37,68 @@
                 </div>
             </div>
             <div class="container">
-              <div id="carouselExampleCaptions" class="carousel slide mb-5"      data-bs-ride="carousel">
-                <div class="carousel-indicators ">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0" style="height: 10px;width: 10px;border-radius:50%;"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" style="height: 10px;width: 10px;border-radius:50%;"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" style="height: 10px;width: 10px;border-radius:50%;"></button>
+              <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    @foreach ($images as $index => $image)
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $index }}"
+                            class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : '' }}" aria-label="Slide {{ $index }}"
+                            style="height: 10px; width: 10px; border-radius: 50%;">
+                        </button>
+                    @endforeach
                 </div>
+            
                 <div class="carousel-inner rounded">
-                  <div class="carousel-item active">
-                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
-                    <div class="carousel-caption d-none d-md-block">
-                     
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
-                    <div class="carousel-caption d-none d-md-block">
-                      
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                  <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s" alt="Slide ">
-                    <div class="carousel-caption d-none d-md-block">
-                      
-                    </div>
-                  </div>
+                    @foreach ($images as $index => $image)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <img class="d-block w-100" style="height: 400px; object-fit: cover;" src="{{ Storage::url($image) }}" alt="Slide {{ $index }}">
+                        </div>
+                    @endforeach
                 </div>
-                
-               </div>
-          
-              <!-- Company Profile Section -->
-              <div class=" card  p-4 rounded shadow-sm pb-8">
-                  <div class="card-body">
-                  <div class="row justify-content-between align-items-center">
-                      <div class=" d-flex w-40 gap-3 col-md-2 text-center">
-                          <!-- <img src="{{ Storage::url(auth()->user()->officeprofile?->logo) }}" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo"> -->
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s    " class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo">
-                          <h4 class="text-primary pt-3 font-weight-bold">{{ auth()->user()->officeprofile?->name }}</h4>
-                      </div>
-                      <div class="col-md-3">
-                         
-                          <ul class="list-unstyled mt-2">
-                              <li class="mb-2">
-                                <i class="fas fa-map-marker-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->address }}</li>
-                              <li class="mb-2">
-                                <i class="fas fa-phone-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->phone }}</li>
-                              <li class="mb-2">
-                                <i class="fas fa-envelope text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->email }}</li>
-                          </ul>
-                      </div>
-                  </div>
-                  </div>
-          
-                  <hr>
-          
-                  <h4 class="text-secondary font-weight-bold">About:</h4>
-                  <p class="text-muted"> {{ auth()->user()->officeprofile?->details }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt repellat ducimus soluta alias voluptatibus dignissimos voluptatum. Qui, sint sequi quam reprehenderit aspernatur obcaecati culpa sit, cupiditate impedit quo praesentium corrupti tenetur rerum harum ad optio libero totam? Eaque, possimus voluptates ipsa ut porro veritatis accusantium aspernatur ipsam voluptas dolorum laborum? </p>
-              </div>
-          </div>
+            </div>
+            
+
+                <!-- Company Profile Section -->
+                <div class=" card  p-4 rounded shadow-sm pb-8">
+                    <div class="card-body">
+                        <div class="row justify-content-between align-items-center">
+                            <div class=" d-flex w-40 gap-3 col-md-2 text-center">
+                                <img src="{{ Storage::url(auth()->user()->officeprofile?->logo) }}"
+                                    class="rounded-circle mb-3"class="rounded-circle mb-3"
+                                    style="width: 80px; height: 80px; object-fit: cover;" alt="Profile Logo">
+                                {{-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUPIfiGgUML8G3ZqsNLHfaCnZK3I5g4tJabQ&s    "  alt="Profile Logo"> --}}
+                                <h4 class="text-primary pt-3 font-weight-bold">
+                                    {{ auth()->user()->officeprofile?->name }}</h4>
+                            </div>
+                            <div class="col-md-3">
+
+                                <ul class="list-unstyled mt-2">
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-map-marker-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->address }}
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-phone-alt text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->phone }}
+                                    </li>
+                                    <li class="mb-2">
+                                        <i
+                                            class="fas fa-envelope text-primary mr-2 pe-2"></i>{{ auth()->user()->officeprofile?->email }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h4 class="text-secondary font-weight-bold">About:</h4>
+                    <p class="text-muted"> {{ auth()->user()->officeprofile?->details }} Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Incidunt repellat ducimus soluta alias voluptatibus dignissimos
+                        voluptatum. Qui, sint sequi quam reprehenderit aspernatur obcaecati culpa sit, cupiditate
+                        impedit quo praesentium corrupti tenetur rerum harum ad optio libero totam? Eaque, possimus
+                        voluptates ipsa ut porro veritatis accusantium aspernatur ipsam voluptas dolorum laborum? </p>
+                </div>
+            </div>
         @else
             <div class=" d-flex justify-content-center align-content-center" style="height: 80vh;">
                 <div class="w-70 d-flex align-items-center">
@@ -117,6 +124,10 @@
     </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </x-agent.app>
