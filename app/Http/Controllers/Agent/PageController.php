@@ -58,12 +58,12 @@ class PageController extends Controller
     public function officeProfile() {
         return view('agent.pages.agent_Office_Management.office_profile');
     }
-    // public function teammanagement() {
-    //     return view('agent.pages.agent_Office_Management.team_management');
-    // }
+  
     public function tourReservation()  {
         return view('agent.pages.tour_reservation');
     }
-  
+    public function affiliateLinks() {
+        return view('agent.pages.affiliate_links');
+    }
  
 }

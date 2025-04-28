@@ -97,6 +97,10 @@
                         voluptatum. Qui, sint sequi quam reprehenderit aspernatur obcaecati culpa sit, cupiditate
                         impedit quo praesentium corrupti tenetur rerum harum ad optio libero totam? Eaque, possimus
                         voluptates ipsa ut porro veritatis accusantium aspernatur ipsam voluptas dolorum laborum? </p>
+
+                        <a href="{{ route('agent.dashboard.officeProfile') }}"
+                        class="text-white btn btn-primary "
+                        style="padding-top: 12px;width: 235px;height: 48px;">Edit Office Profile</a>
                 </div>
             </div>
         @else

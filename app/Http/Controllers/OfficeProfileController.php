@@ -6,6 +6,7 @@ use App\Models\OfficeProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class OfficeProfileController extends Controller
 {
@@ -16,6 +17,8 @@ class OfficeProfileController extends Controller
 
     public function officeProfile_store(Request $request)
     {
+        $logo=auth()->user()->officeProfile ? auth()->user()->officeProfile->logo :null;
+        $images=auth()->user()->officeProfile ? json_decode(auth()->user()->officeProfile->images) :[];
       
         if ($request->hasFile('logo')) {
             if (auth()->user()->officeProfile && storage::exists(auth()->user()->officeProfile->logo)) {
@@ -35,16 +38,18 @@ class OfficeProfileController extends Controller
                     }
                 }
             }
-            $images = []; 
+            
             foreach ($request->images as $image) {
                 $images[] = $image->store('profiles', 'public');
             }
         }
+        $uniqueId = substr(Str::uuid()->toString(8), 0, 10);
 
         OfficeProfile::updateOrCreate([
             'user_id' => auth()->id()
         ], [
             'name' => $request->name,
+            'slug'=>$uniqueId,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,

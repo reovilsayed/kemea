@@ -12,7 +12,8 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link  {{ request()->is('agent/dashboard') ? 'active' : '' }} text-dark" href="{{route('agent.dashboard.dashboard')}}">
+                <a class="nav-link  {{ request()->is('agent/dashboard') ? 'active' : '' }} text-dark"
+                    href="{{ route('agent.dashboard.dashboard') }}">
                     <span class="material-symbols-rounded opacity-5">
                         speed
                     </span>
@@ -22,25 +23,31 @@
             </li>
 
             <li class="nav-item">
-                <a href="javascript:void(0)" class="nav-link text-dark {{request()->is('agent/dashboard/properties*') ? 'collapsed' :''}}" data-bs-toggle="collapse"
-                    data-bs-target="#home-collapse" aria-expanded="{{ request()->is('agent/dashboard/properties*') ? 'true' : 'false' }}">
+                <a href="javascript:void(0)"
+                    class="nav-link text-dark {{ request()->is('agent/dashboard/properties*') ? 'collapsed' : '' }}"
+                    data-bs-toggle="collapse" data-bs-target="#home-collapse"
+                    aria-expanded="{{ request()->is('agent/dashboard/properties*') ? 'true' : 'false' }}">
                     <i class="material-symbols-rounded opacity-5">apartment</i>
 
                     <span class="nav-link-text ms-1">Propertices Management</span> <i class=" ms-2 fas fa-angle-down"
                         style="font-size: 10px"></i>
                 </a>
-                <div class="collapse {{ request()->is('agent/dashboard/properties*') ? 'show' : '' }}" id="home-collapse" style="">
+                <div class="collapse {{ request()->is('agent/dashboard/properties*') ? 'show' : '' }}"
+                    id="home-collapse" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="{{route('agent.dashboard.properties.create')}}"
-                                class="nav-link ms-4  text-dark bg-white  {{ request()->is('agent/dashboard/properties/create') ? 'active' : '' }}">Add Propertices</a></li>
-                        <li><a href="{{route('agent.dashboard.properties.index')}}"
-                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/properties') ? 'active' : '' }}">Listed Propertices</a></li>
+                        <li><a href="{{ route('agent.dashboard.properties.create') }}"
+                                class="nav-link ms-4  text-dark bg-white  {{ request()->is('agent/dashboard/properties/create') ? 'active' : '' }}">Add
+                                Propertices</a></li>
+                        <li><a href="{{ route('agent.dashboard.properties.index') }}"
+                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/properties') ? 'active' : '' }}">Listed
+                                Propertices</a></li>
 
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->is('agent/dashboard/tour-reservation') ? 'active' : '' }} " href="{{route('agent.dashboard.tour.reservation')}}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/tour-reservation') ? 'active' : '' }} "
+                    href="{{ route('agent.dashboard.tour.reservation') }}">
                     {{-- <i class="material-symbols-rounded opacity-5">receipt_long</i> --}}
                     <i class="material-symbols-rounded opacity-5">calendar_month</i>
                     <span class="nav-link-text ms-1">Tour Reservation</span>
@@ -49,19 +56,23 @@
 
             <li class="nav-item">
                 <a href="javascript:void(0)" class="nav-link text-dark collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#home-collapse3" aria-expanded="{{ request()->is('agent/dashboard/properties*') ? 'true' : 'false' }}">
+                    data-bs-target="#home-collapse3"
+                    aria-expanded="{{ request()->is('agent/dashboard/properties*') ? 'true' : 'false' }}">
                     <i class="material-symbols-rounded opacity-5">apartment</i>
 
                     <span class="nav-link-text ms-1">Agent Office Management </span> <i class=" ms-2 fas fa-angle-down"
                         style="font-size: 10px"></i>
                 </a>
 
-                <div class="collapse {{ request()->is('agent/dashboard/team_management') ||  request()->is('agent/dashboard/office-profile') ? 'show' : '' }}" id="home-collapse3" style="">
+                <div class="collapse {{ request()->is('agent/dashboard/team_management') || request()->is('agent/dashboard/office-profile') ? 'show' : '' }}"
+                    id="home-collapse3" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="{{ route('agent.dashboard.office.profile') }}"
-                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/office-profile') ? 'active' : '' }}">Office Profile</a></li>
+                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/office-profile') ? 'active' : '' }}">Office
+                                Profile</a></li>
                         <li><a href="{{ route('agent.dashboard.team_management.index') }}"
-                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/team_management') ? 'active' : '' }}">Team Management</a></li>
+                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/team_management') ? 'active' : '' }}">Team
+                                Management</a></li>
 
                     </ul>
                 </div>
@@ -74,13 +85,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->is('agent/dashboard/visibilities') ? 'active' : '' }}" href="{{ route('agent.dashboard.visibilities') }}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/visibilities') ? 'active' : '' }}"
+                    href="{{ route('agent.dashboard.visibilities') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Visibilities</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->is('agent/dashboard/shared-search') ? 'active' : '' }}" href="{{ route('agent.dashboard.shared-search.index') }}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/shared-search') ? 'active' : '' }}"
+                    href="{{ route('agent.dashboard.shared-search.index') }}">
                     <i class="material-symbols-rounded opacity-5">other_houses</i>
                     <span class="nav-link-text ms-1">Shared Search</span>
                 </a>
@@ -92,12 +105,22 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ request()->is('agent/dashboard/messages/*') ? 'active' : '' }}" href="{{route('agent.dashboard.messages')}}">
+                <a class="nav-link text-dark {{ request()->is('agent/dashboard/messages/*') ? 'active' : '' }}"
+                    href="{{ route('agent.dashboard.messages') }}">
                     <i class="material-symbols-rounded opacity-5">forum</i>
                     <span class="nav-link-text ms-1">Messages</span>
                 </a>
             </li>
+            @if (auth()->user()->officeProfile)
+                <li class="nav-item">
+                    <a class="nav-link text-dark {{ request()->is('agent/dashboard/affiliate') ? 'active' : '' }}"
+                        href="{{ route('agent.dashboard.affiliate') }}">
+                        <i class="material-symbols-rounded opacity-5">tenancy</i>
 
+                        <span class="nav-link-text ms-1">Affiliate Links</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="javascript:void(0)" class="nav-link text-dark collapsed" data-bs-toggle="collapse"
                     data-bs-target="#home-collapse1" aria-expanded="false">
@@ -106,12 +129,15 @@
                     <span class="nav-link-text ms-1">Plan Management </span> <i class=" ms-2 fas fa-angle-down"
                         style="font-size: 10px"></i>
                 </a>
-                <div class="collapse  {{ request()->is('agent/dashboard/plan-management') ||  request()->is('agent/dashboard/invoices') ? 'show' : '' }}" id="home-collapse1" style="">
+                <div class="collapse  {{ request()->is('agent/dashboard/plan-management') || request()->is('agent/dashboard/invoices') ? 'show' : '' }}"
+                    id="home-collapse1" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="{{ route('agent.dashboard.plan.management') }}"
-                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/plan-management') ? 'active' : '' }}">Plan Management</a></li>
+                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/plan-management') ? 'active' : '' }}">Plan
+                                Management</a></li>
                         <li><a href="{{ route('agent.dashboard.invoices') }}"
-                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/invoices') ? 'active' : '' }}">Invoices</a></li>
+                                class="nav-link ms-4  text-dark bg-white {{ request()->is('agent/dashboard/invoices') ? 'active' : '' }}">Invoices</a>
+                        </li>
 
                     </ul>
                 </div>
