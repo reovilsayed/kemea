@@ -67,10 +67,13 @@ class Team_ManagementController extends Controller
      */
     public function update(Request $request, Team_Management $team_Management)
     {
-        // if ($request->hasFile('image')) {
-        //     $image = $request->file('image')->store('team_managements', 'public');
-        // }
-        $team_Management->update($request->only(['first_name', 'last_name', 'email', 'phone', 'address']));
+        if ($request->hasFile('image')) {
+            if ($team_Management->image) {
+                Storage::delete($team_Management->image);
+            }
+            $image = $request->file('image')->store('team_managements', 'public');
+        }
+        $team_Management->update(array_merge($request->only(['first_name', 'last_name', 'email', 'phone', 'address']),['image'=>$image ?? null]));
         return redirect()->route('agent.dashboard.team_management.index')->with('success', 'Team member updated successfully.');
     }
 
