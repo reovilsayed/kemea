@@ -5,10 +5,11 @@
                 <div class="">
                     <h5 class="mb-4">Property Description</h5>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"
-                        placeholder="Enter Description">{{ $property->property_meta->description ?? ''}}</textarea>
+                        placeholder="Enter Description">{{ $property->property_meta->description ?? '' }}</textarea>
 
-                    <input type="text" class="form-control mt-3" name="keywords" value="{{ $property->keywords ?? ''}}"
-                        id="exampleFormControlInput1" placeholder="Add Keywords" aria-label="Property Name">
+                    <input type="text" class="form-control mt-3" name="keywords"
+                        value="{{ $property->keywords ?? '' }}" id="exampleFormControlInput1" placeholder="Add Keywords"
+                        aria-label="Property Name">
                 </div>
                 <div class="text-end mt-3">
                     <button class="btn btn-primary px-4 py-2 fw-bold"><img
@@ -35,8 +36,8 @@
                             <path
                                 d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
                         </svg>
-                        <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span
-                                class="text-primary">click to browse</span></p>
+                        <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span class="text-primary">click
+                                to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</p>
                         <input type="file" id="propertyPhoto" name="property_photos[]" class="hidden-input"
                             accept="image/png, image/jpeg, image/gif" multiple>
@@ -54,7 +55,8 @@
                     <h6 class="upload-title">Home Staging</h6>
 
                     <input type="checkbox" class="form-check-input" name="virtual_home_staging" value="1"
-                        id="">
+                        {{ old('virtual_home_staging', $property->virtual_home_staging ?? 1) ? 'checked' : '' }}>
+
                     <label class="upload-title form-label">Add Virtual Home Staging</label>
                     <label for="homeStaging" class="upload-container w-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#6C757D"
@@ -64,8 +66,8 @@
                             <path
                                 d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zM1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.5l-7 3.5L1 3.5V3zm0 1v.5l7 3.5 7-3.5V4H1zm0 1v6.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V5H1z" />
                         </svg>
-                        <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span
-                                class="text-primary">click to browse</span></p>
+                        <p class="fs-5 text-dark fw-bolder">Drop your images here, or <span class="text-primary">click
+                                to browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</p>
                         <input type="file" id="homeStaging" name="home_staging_photos[]" class="hidden-input"
                             accept="image/png, image/jpeg, image/gif" multiple>
@@ -82,8 +84,8 @@
                             <path
                                 d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
                         </svg>
-                        <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span
-                                class="text-primary">click to browse</span></p>
+                        <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span class="text-primary">click to
+                                browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. MP4, MOV files are allowed</p>
                         <input type="file" id="videoUpload" name="videos[]" class="hidden-input"
                             accept="video/mp4, video/quicktime" multiple>
@@ -102,8 +104,8 @@
                             <path
                                 d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
                         </svg>
-                        <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span
-                                class="text-primary">click to browse</span></p>
+                        <p class="fs-5 text-dark fw-bolder">Drop your Video here, or <span class="text-primary">click to
+                                browse</span></p>
                         <p>1600 x 1200 (4:3) recommended. MP4, MOV files are allowed</p>
                         <input type="file" id="tourEmbed" name="tour_embed[]" class="hidden-input"
                             accept="video/mp4, video/quicktime" multiple>
