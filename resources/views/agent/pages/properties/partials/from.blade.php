@@ -76,7 +76,7 @@
 
         @php $area = old('area', $property->area); @endphp
         <div class="row mb-4">
-            @foreach (['North', 'Center', 'Jerusalem', 'South'] as $option)
+            @foreach (['North', 'Center', 'Jerujalem', 'South'] as $option)
             <div class="col-md-3 col-6">
                 <input class="form-check-input area-select" type="checkbox" name="area" value="{{ $option }}" id="{{ $option }}"
                     {{ $area == $option ? 'checked' : '' }}>
