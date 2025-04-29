@@ -108,7 +108,7 @@
                                         <td>
                                             <div class="d-flex px-2 py-1 align-items-center">
                                                 <div>
-                                                    <img src="{{ Storage::url($property->property_meta->property_photo ?? '') }}"
+                                                    <img src="{{ Storage::url($property->property_meta_attachments?->property_photos[0] ) }}"
                                                         class="avatar avatar-sm me-2 border-radius-circle"
                                                         alt="user1">
                                                 </div>
@@ -170,13 +170,13 @@
                                                     </button>
                                                 </form>
                                             </div>
-                                            @if(!$property->is_boosted)
+                                            {{-- @if(!$property->is_boosted)
                                             <a href="javascript::void(0)" class="btn btn-custom-primary boost-button"
                                                 data-bs-toggle="modal" data-bs-target="#boostModal"
                                                 data-property-id="{{ $property->id }}">Boost</a>
 
                                             </p>
-                                            @endif
+                                            @endif --}}
 
                                         </td>
 

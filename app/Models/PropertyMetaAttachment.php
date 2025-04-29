@@ -9,4 +9,9 @@ class PropertyMetaAttachment extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function getPropertyPhotosAttribute($value)
+    {
+        return json_decode($value);
+    }
 }

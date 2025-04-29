@@ -102,7 +102,7 @@
                     <td>
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="{{ asset('agent-assets/img/team-2.jpg') }}"
+                          <img src="{{ Storage::url($boost->property?->property_meta_attachments?->property_photos[0] ) }}"
                             class="avatar avatar-sm me-2 border-radius-circle" alt="user1">
                         </div>
                         <div class="d-flex flex-column justify-content-center">

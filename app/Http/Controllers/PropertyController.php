@@ -143,7 +143,10 @@ class PropertyController extends Controller
     public function createPage_third(Request $request, Property $property)
     {
         $property_meta = Property_meta::where('property_id', $property->id)->firstOrFail();
-
+        $property_photos = [];
+        $home_staging_photos = [];
+        $videos = [];
+        $tour_embed = [];
 
         if ($request->property_photos) {
             $property_photos = [];
@@ -297,11 +300,12 @@ class PropertyController extends Controller
         $property_meta = $property->property_meta;
         $property_meta_attachment = $property->property_meta_attachments;
 
+
         $property_photos = [];
         $home_staging_photos = [];
         $videos = [];
         $tour_embed = [];
-
+ 
 
         if ($request->hasFile('property_photos')) {
             if ($property_meta_attachment && $property_meta_attachment->property_photos) {

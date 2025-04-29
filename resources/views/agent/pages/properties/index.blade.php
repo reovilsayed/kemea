@@ -104,12 +104,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($properties as $property)
-                                        {{-- @dd($properties) --}}
+                                       
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1 align-items-center">
                                                     <div>
-                                                        <img src="{{ Storage::url($property->property_meta->property_photo ?? '') }}"
+                                                        <img src="{{ Storage::url($property->property_meta_attachments?->property_photos[0] ) }}"
                                                             class="avatar avatar-sm me-2 border-radius-circle"
                                                             alt="user1">
                                                     </div>
