@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\OfficeProfile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -92,13 +93,18 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-       
+    
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'role' => ['required'],
         ]);
+        $referral_id=null;
+        if($request->referral_id){
+            $referral_id=OfficeProfile::where('slug',$request->referral_id)->first()->id;
+        }
+
 
         $username = $request->email;
        
@@ -135,6 +141,7 @@ class RegisterController extends Controller
             'username' => $username,
             'password' => Hash::make($request->password),
             'role_id' => $role_id,
+            'referral_id' => $referral_id,
 
 
         ];

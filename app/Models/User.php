@@ -26,7 +26,8 @@ class User extends Authenticatable
         'role_id',
         'plan_id',
         'expired_at',
-        'is_paid'
+        'is_paid',
+        'referral_id'
     ];
 
     /**

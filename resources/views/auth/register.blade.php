@@ -82,6 +82,7 @@
             <h5 class="text-dark text-center">Provide a detail and Signup</h5>
         </div>
         <form method="POST" action="{{ route('register') }}">
+            @csrf
             <div class="login-input m-auto">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label fw-bold">Enter Your Name</label>
@@ -122,7 +123,8 @@
                     <label for="inputPassword" class="form-label fw-bold">Confirm Password</label>
                     <input id="password-confirm" type="password" class="form-control castom-login-input " name="password_confirmation" required autocomplete="new-password">
                 </div>
-                <input type="hidden" name="role" value="user">
+                <input type="hidden" name="role" value="agent">
+                <input type="hidden" name="referral_id" value="{{request()->affiliate}}">
 
                 <div class="forgot-pass d-flex justify-content-between">
                     <div class="form-check">

@@ -3682,8 +3682,9 @@ fieldset:disabled .btn {
     --bs-position: end;
 }
 .dropdown-menu-end[data-bs-popper] {
-    right: 0;
+    right: 38px;
     left: auto;
+    top: 32px;
 }
 @media (min-width: 576px) {
     .dropdown-menu-sm-start {
